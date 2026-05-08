@@ -15,6 +15,7 @@
      BARRA LATERAL DE NAVEGACIÓN
 ══════════════════════════════════════ -->
 <nav id="sidebar">
+  <button class="sidebar-toggle-btn" onclick="toggleSidebarWidth()" title="Contraer/Expandir">«</button>
   <div class="sidebar-logo">
     <h1>Chroniq</h1>
     <p>Manual de Usuario</p>
@@ -82,6 +83,9 @@
 
   <div class="nav-section">
     <div class="nav-section-label">Cierre</div>
+    <a class="nav-link" onclick="show('errores')">
+      <span class="nav-icon">⚠️</span> Errores comunes
+    </a>
     <a class="nav-link" onclick="show('referencias')">
       <span class="nav-icon">📚</span> Referencias
     </a>
@@ -155,7 +159,8 @@
       <a class="toc-item" onclick="show('f6')">            <span class="toc-num">F6</span><span class="toc-label">Deshabilitar un evento</span></a>
       <a class="toc-item" onclick="show('f7')">            <span class="toc-num">F7</span><span class="toc-label">Mis eventos (Invitado)</span></a>
       <a class="toc-item" onclick="show('f8')">            <span class="toc-num">F8</span><span class="toc-label">Cerrar sesión</span></a>
-      <a class="toc-item" onclick="show('referencias')">   <span class="toc-num">09</span><span class="toc-label">Referencias</span></a>
+      <a class="toc-item" onclick="show('errores')">        <span class="toc-num">09</span><span class="toc-label">Errores comunes</span></a>
+      <a class="toc-item" onclick="show('referencias')">   <span class="toc-num">10</span><span class="toc-label">Referencias</span></a>
     </div>
   </section>
 
@@ -180,14 +185,20 @@
         <tr><td>Fig. 1</td><td>Inicio de sesión</td><td>Formulario de acceso con número de cédula y contraseña</td><td>F1</td></tr>
         <tr><td>Fig. 2</td><td>Error de credenciales</td><td>Mensaje de error al ingresar datos incorrectos</td><td>F1</td></tr>
         <tr><td>Fig. 3</td><td>Formulario Crear Evento</td><td>Campos para registrar nombre, tipo, fecha y hora</td><td>F2</td></tr>
-        <tr><td>Fig. 4</td><td>Error de horario al crear evento</td><td>Mensaje cuando el horario ya está ocupado</td><td>F2</td></tr>
+        <tr><td>Fig. 3a</td><td>Selector de fecha y hora</td><td>Componente interactivo para seleccionar fechas y horas</td><td>F2</td></tr>
+        <tr><td>Fig. 3b</td><td>Error: Falta nombre</td><td>Mensaje cuando no se ingresa nombre del evento</td><td>F2</td></tr>
+        <tr><td>Fig. 3c</td><td>Error: Falta tipo de evento</td><td>Mensaje cuando no se selecciona un tipo de evento</td><td>F2</td></tr>
+        <tr><td>Fig. 3d</td><td>Error: Fechas inválidas</td><td>Mensaje cuando la fecha de fin es anterior a la de inicio</td><td>F2</td></tr>
+        <tr><td>Fig. 3e</td><td>Error de horario ocupado</td><td>Mensaje cuando el horario ya está ocupado</td><td>F2</td></tr>
         <tr><td>Fig. 5</td><td>Panel principal del Líder</td><td>Tabla de eventos con opciones de gestión disponibles</td><td>F3</td></tr>
         <tr><td>Fig. 6</td><td>Formulario Actualizar Evento</td><td>Edición de los datos de un evento existente</td><td>F4</td></tr>
         <tr><td>Fig. 7</td><td>Formulario Agregar Participantes</td><td>Dos paneles: invitados disponibles e inscritos al evento</td><td>F5</td></tr>
         <tr><td>Fig. 8</td><td>Registro de nuevo invitado</td><td>Formulario para crear un nuevo usuario invitado</td><td>F5</td></tr>
-        <tr><td>Fig. 9</td><td>Error de participante con conflicto</td><td>Mensaje cuando el invitado ya tiene otro evento en el mismo horario</td><td>F5</td></tr>
+        <tr><td>Fig. 8a</td><td>Error: Cédula duplicada</td><td>Mensaje cuando se intenta registrar una cédula que ya existe</td><td>F5</td></tr>
+        <tr><td>Fig. 8b</td><td>Error: Conflicto de horario (Invitado)</td><td>Aviso cuando el invitado ya tiene otro evento en el mismo horario</td><td>F5</td></tr>
         <tr><td>Fig. 10</td><td>Confirmación de deshabilitar evento</td><td>Cuadro de confirmación antes de deshabilitar</td><td>F6</td></tr>
         <tr><td>Fig. 11</td><td>Panel del Invitado</td><td>Listado de próximos eventos asignados al usuario</td><td>F7</td></tr>
+        <tr><td>Fig. 12</td><td>Cierre de sesión</td><td>Confirmación antes de cerrar sesión</td><td>F8</td></tr>
       </tbody>
     </table>
   </section>
@@ -387,17 +398,51 @@
           <div class="step"><div class="step-num">6</div><div class="step-text">Haga clic en <strong>Crear evento</strong>. Si todo está correcto, el sistema abrirá automáticamente la pantalla para agregar participantes.</div></div>
         </div>
 
+        <h4>Usando el selector de fecha y hora</h4>
+        <p>Para seleccionar la fecha y hora de forma ágil, el sistema proporciona selectores interactivos:</p>
+        <div class="screen-mock">
+          <img src="img/crear-evento-seleccion-de-fecha-hora.png" alt="Selector de fecha y hora" >
+        </div>
+        <p class="fig-caption"><em>Fig. 3a — Selector de fecha y hora interactivo</em></p>
+
+        <ul>
+          <li><strong>Selector de fecha:</strong> Haga clic para abrir un calendario pequeño. Seleccione el mes, año y día requerido.</li>
+          <li><strong>Selector de hora:</strong> Use las flechas ▲ y ▼ para aumentar o disminuir la hora. También puede escribir directamente en el campo.</li>
+        </ul>
+
+        <!-- Errores de validación -->
+        <h4>Mensajes de error: campos obligatorios</h4>
+        <p>El sistema verifica que todos los campos estén completos y sean válidos antes de crear el evento. Si falta completar algo, verá los siguientes mensajes:</p>
+
+        <h5 style="font-size: .85rem; margin-top: 1rem; margin-bottom: .5rem;">Error: Falta nombre del evento</h5>
+        <div class="screen-mock">
+          <img src="img/error-crear-evento-sin-nombre.png" alt="Error: Falta nombre del evento" >
+        </div>
+        <p class="fig-caption"><em>Fig. 3b — Error cuando no se ingresa nombre del evento</em></p>
+
+        <h5 style="font-size: .85rem; margin-top: 1rem; margin-bottom: .5rem;">Error: Falta seleccionar tipo de evento</h5>
+        <div class="screen-mock">
+          <img src="img/error-crear-evento-sin-tipo.png" alt="Error: Falta tipo de evento" >
+        </div>
+        <p class="fig-caption"><em>Fig. 3c — Error cuando no se selecciona un tipo de evento</em></p>
+
+        <h5 style="font-size: .85rem; margin-top: 1rem; margin-bottom: .5rem;">Error: Fechas inválidas</h5>
+        <div class="screen-mock">
+          <img src="img/error-de-fecha-crear-evento.png" alt="Error: Fechas inválidas" >
+        </div>
+        <p class="fig-caption"><em>Fig. 3d — Error cuando la fecha de fin es anterior o igual a la de inicio</em></p>
+
         <!-- Error: conflicto de horario -->
         <h4>Mensaje de error: horario ocupado</h4>
         <p>Si ya existe otro evento activo en el mismo horario, verá el siguiente aviso:</p>
         <div class="screen-mock">
          
         </div>
-        <p class="fig-caption"><em>Fig. 4 — Mensaje cuando el horario ya está ocupado por otro evento</em></p>
+        <p class="fig-caption"><em>Fig. 3e — Mensaje cuando el horario ya está ocupado por otro evento</em></p>
 
         <div class="info-box">
-          <span class="box-label" style="color:var(--accent);">💡 Recuerde</span>
-          <p>Si la fecha de fin es anterior o igual a la fecha de inicio, el sistema también mostrará un aviso solicitándole que corrija las fechas antes de continuar.</p>
+          <span class="box-label" style="color:var(--accent);">💡 Gestión de horarios</span>
+          <p>El sistema no permite crear dos eventos con horarios superpuestos. Esto evita conflictos de scheduling y ayuda a organizar mejor las actividades.</p>
         </div>
       </div>
     </div>
@@ -492,9 +537,16 @@
 
         <!-- Fig. 7 -->
         <div class="screen-mock">
-          <img src="img/agregar-invitado.png" alt="Pantalla para agregar participantes a un evento">1
+          <img src="img/agregar-invitado.png" alt="Pantalla para agregar participantes a un evento">
         </div>
         <p class="fig-caption"><em>Fig. 7 — Pantalla para agregar participantes a un evento</em></p>
+
+        <h4>Estructura de la pantalla</h4>
+        <ul>
+          <li><strong>Panel Disponibles (izquierda):</strong> Muestra todos los invitados que aún no han sido asignados a este evento.</li>
+          <li><strong>Panel Inscritos (derecha):</strong> Muestra los invitados que ya fueron agregados a este evento.</li>
+          <li><strong>Botones de acción:</strong> Permiten agregar, remover y crear nuevos invitados.</li>
+        </ul>
 
         <h4>Pasos para agregar un participante</h4>
         <div class="steps">
@@ -503,6 +555,11 @@
           <div class="step"><div class="step-num">3</div><div class="step-text">Haga clic en el botón <strong>Agregar seleccionado</strong>. El sistema verificará que el invitado no tenga conflicto de horario.</div></div>
           <div class="step"><div class="step-num">4</div><div class="step-text">Si todo está bien, el invitado pasará automáticamente al panel derecho (<em>Inscritos</em>).</div></div>
           <div class="step"><div class="step-num">5</div><div class="step-text">Si el invitado que busca no aparece en la lista, use el botón <strong>Crear nuevo invitado</strong> para registrarlo.</div></div>
+        </div>
+
+        <div class="info-box green">
+          <span class="box-label" style="color:var(--success);">✅ Validación automática</span>
+          <p>El sistema verifica automáticamente que el invitado no tenga conflictos de horario antes de agregarlo. Si existe un conflicto, mostrará un mensaje de error.</p>
         </div>
 
         <!-- Registrar nuevo invitado -->
@@ -517,21 +574,27 @@
 
         <h4>Campos requeridos al crear un invitado</h4>
         <ul>
-          <li><strong>Nombre completo</strong></li>
-          <li><strong>Género</strong> (se selecciona de la lista)</li>
-          <li><strong>Correo electrónico</strong> (debe incluir el símbolo @)</li>
-          <li><strong>Teléfono</strong> (máximo 10 dígitos)</li>
-          <li><strong>Edad</strong> (máximo 2 dígitos)</li>
-          <li><strong>Número de cédula</strong> (entre 4 y 10 dígitos; no puede estar repetido)</li>
-          <li><strong>Contraseña</strong> (no puede estar vacía)</li>
+          <li><strong>Nombre completo:</strong> El nombre completo del participante.</li>
+          <li><strong>Género:</strong> Seleccione de la lista disponible (Masculino, Femenino, Otro).</li>
+          <li><strong>Correo electrónico:</strong> Dirección de correo válida (debe incluir el símbolo @).</li>
+          <li><strong>Teléfono:</strong> Número de contacto (máximo 10 dígitos).</li>
+          <li><strong>Edad:</strong> Edad numérica (máximo 2 dígitos).</li>
+          <li><strong>Número de cédula:</strong> Identificación única (entre 4 y 10 dígitos). No puede estar repetida en el sistema.</li>
+          <li><strong>Contraseña:</strong> Contraseña segura que el invitado usará para ingresar (no puede estar vacía).</li>
         </ul>
+
+        <div class="info-box blue">
+          <span class="box-label" style="color:var(--info);">ℹ️ Cédula única</span>
+          <p>El número de cédula es el identificador único de cada usuario. No puede haber dos invitados con la misma cédula en el sistema.</p>
+        </div>
 
         <!-- Error: cédula duplicada -->
         <h4>Mensaje de error: cédula ya registrada</h4>
+        <p>Si intenta registrar un invitado con un número de cédula que ya existe en el sistema, verá el siguiente mensaje:</p>
         <div class="screen-mock">
          
         </div>
-        <p class="fig-caption"><em>Fig. 9 — Error al intentar registrar una cédula que ya existe</em></p>
+        <p class="fig-caption"><em>Fig. 8a — Error al intentar registrar una cédula que ya existe</em></p>
 
         <!-- Error: conflicto de horario del invitado -->
         <h4>Mensaje de error: conflicto de horario del participante</h4>
@@ -539,7 +602,12 @@
         <div class="screen-mock">
           
         </div>
-        <p class="fig-caption" style="margin-bottom:1.5rem;"><em>Fig. 9 (continuación) — Aviso de conflicto de horario al agregar un participante</em></p>
+        <p class="fig-caption" style="margin-bottom:1.5rem;"><em>Fig. 8b — Aviso de conflicto de horario al agregar un participante</em></p>
+
+        <div class="info-box warn">
+          <span class="box-label" style="color:var(--warning);">💡 Resolución de conflictos</span>
+          <p>Si hay un conflicto de horario, puede: (1) cambiar la hora del evento actual, (2) asignar a otro invitado, o (3) esperar a que se resuelva el conflicto.</p>
+        </div>
 
       </div>
     </div>
@@ -629,27 +697,118 @@
         <h3>Cerrar sesión</h3>
       </div>
       <div class="func-card-body">
-        <p><strong>¿Para qué sirve?</strong> Permite a cualquier usuario (Líder o Invitado) salir de forma segura del sistema. Al cerrar sesión, el sistema regresa a la pantalla de inicio de sesión.</p>
+        <p><strong>¿Para qué sirve?</strong> Permite a cualquier usuario (Líder o Invitado) salir de forma segura del sistema. Al cerrar sesión, el sistema regresa a la pantalla de inicio de sesión y todas las sesiones activas se cierran correctamente.</p>
+
+        <h4>¿Dónde está el botón de cerrar sesión?</h4>
+        <ul>
+          <li><strong>Para Líderes:</strong> El botón suele encontrarse en la esquina superior derecha del panel principal, o en un menú de usuario.</li>
+          <li><strong>Para Invitados:</strong> Se ubica en la misma posición del panel de eventos del Invitado.</li>
+        </ul>
 
         <h4>¿Cómo cerrar sesión?</h4>
         <div class="steps">
           <div class="step"><div class="step-num">1</div><div class="step-text">En su panel (ya sea del Líder o del Invitado), busque el botón <strong>Cerrar sesión</strong> o <strong>Volver</strong> ubicado en la pantalla.</div></div>
-          <div class="step"><div class="step-num">2</div><div class="step-text">Haga clic sobre él. El sistema lo llevará de regreso a la pantalla de inicio de sesión.</div></div>
-          <div class="step"><div class="step-num">3</div><div class="step-text">Ahora otro usuario puede ingresar con sus propias credenciales.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Haga clic sobre él. El sistema le pedirá confirmación antes de cerrar.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Confirme la acción. El sistema lo llevará de regreso a la pantalla de inicio de sesión.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Ahora otro usuario puede ingresar con sus propias credenciales.</div></div>
         </div>
 
+        <!-- Fig. 12 -->
+        <div class="screen-mock">
+          <img src="img/salir-de-la-aplicacion.png" alt="Pantalla de cierre de sesión y confirmación" >
+        </div>
+        <p class="fig-caption"><em>Fig. 12 — Confirmación antes de cerrar sesión</em></p>
+
         <div class="info-box warn">
-          <span class="box-label" style="color:var(--warning);">💡 Buena práctica</span>
-          <p>Use siempre el botón de <strong>Cerrar sesión</strong> en lugar de cerrar directamente la ventana de la aplicación. Esto garantiza que su sesión se cierre correctamente.</p>
+          <span class="box-label" style="color:var(--warning);">💡 Buena práctica de seguridad</span>
+          <p>Use siempre el botón de <strong>Cerrar sesión</strong> en lugar de cerrar directamente la ventana de la aplicación. Esto garantiza que su sesión se cierre correctamente y que nadie más pueda acceder a su cuenta sin autorización.</p>
+        </div>
+
+        <div class="info-box blue">
+          <span class="box-label" style="color:var(--info);">ℹ️ En ordenadores compartidos</span>
+          <p>Si está usando un ordenador compartido con otras personas, es especialmente importante cerrar sesión correctamente para proteger la privacidad de sus datos.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MENSAJES DE ERROR COMUNES ══════════ -->
+  <section id="sec-errores" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 9</p>
+      <h2 class="page-title">Mensajes de error comunes</h2>
+    </div>
+    <p>Durante el uso de Chroniq, puede encontrarse con diferentes mensajes de error. En esta sección se explican los más comunes y cómo resolverlos.</p>
+
+    <h3>Errores de Validación de Datos</h3>
+
+    <h4>Error: Campo requerido vacío</h4>
+    <p>Aparece cuando intenta guardar un evento o crear un invitado sin completar un campo obligatorio (nombre, tipo de evento, cédula, etc.).</p>
+    <p><strong>Solución:</strong> Complete todos los campos marcados como obligatorios (generalmente aparecen con un asterisco * o resaltados) y vuelva a intentar.</p>
+
+    <h4>Error: Formato de correo electrónico inválido</h4>
+    <p>Ocurre cuando ingresa una dirección de correo sin el símbolo @ o en un formato no reconocido.</p>
+    <p><strong>Solución:</strong> Verifique que el correo tenga el formato correcto (ej: usuario@dominio.com) y reintente.</p>
+
+    <h4>Error: Teléfono excede el máximo de dígitos</h4>
+    <p>Aparece cuando intenta ingresar un número de teléfono con más de 10 dígitos.</p>
+    <p><strong>Solución:</strong> Reduzca el número de dígitos a 10 o menos e intente nuevamente.</p>
+
+    <h3>Errores de Conflicto de Horarios</h3>
+
+    <h4>Error: No se puede crear el evento por horario ocupado</h4>
+    <p>El sistema detectó que ya existe otro evento activo con un horario que se superpone al que está intentando crear.</p>
+    <p><strong>Soluciones posibles:</strong></p>
+    <ul>
+      <li>Cambiar la hora del evento que está creando.</li>
+      <li>Cambiar la hora del evento existente (si tiene permisos).</li>
+      <li>Deshabilitar el evento existente y crear uno nuevo.</li>
+    </ul>
+
+    <h4>Error: No se puede agregar participante por conflicto de horario</h4>
+    <p>El invitado que intenta agregar ya tiene otro evento asignado en el mismo horario.</p>
+    <p><strong>Soluciones posibles:</strong></p>
+    <ul>
+      <li>Cambiar el horario del evento actual.</li>
+      <li>Cambiar el horario del otro evento del participante (si es posible).</li>
+      <li>Agregar a otro participante en lugar de este.</li>
+    </ul>
+
+    <h3>Errores de Registro de Usuarios</h3>
+
+    <h4>Error: Cédula ya registrada</h4>
+    <p>Intenta registrar un invitado con un número de cédula que ya existe en el sistema.</p>
+    <p><strong>Soluciones posibles:</strong></p>
+    <ul>
+      <li>Usar una cédula diferente si se trata de una persona distinta.</li>
+      <li>Si es la misma persona, buscarla en la lista de "Disponibles" y utilizarla directamente.</li>
+      <li>Verificar que haya escrito correctamente el número de cédula.</li>
+    </ul>
+
+    <h4>Error: Edad inválida</h4>
+    <p>Ocurre cuando intenta ingresar una edad con más de 2 dígitos o un valor no numérico.</p>
+    <p><strong>Solución:</strong> Ingrese solo números hasta 99 y vuelva a intentar.</p>
+
+    <h3>Errores de Validación de Fechas</h3>
+
+    <h4>Error: La fecha de fin debe ser posterior a la de inicio</h4>
+    <p>Intenta crear un evento donde la fecha y hora de finalización es anterior o igual a la de inicio.</p>
+    <p><strong>Solución:</strong> Verifique que la fecha y hora de fin sean posteriores a las de inicio. Use los selectores para asegurar el orden correcto.</p>
+
+    <h4>Error: Fecha inválida</h4>
+    <p>Puede ocurrir si intenta ingresar una fecha que no existe (ej: 31 de febrero).</p>
+    <p><strong>Solución:</strong> Use el selector de fecha para elegir una fecha válida.</p>
+
+    <div class="info-box blue">
+      <span class="box-label" style="color:var(--info);">ℹ️ ¿Necesita más ayuda?</span>
+      <p>Si encontró un error no descrito en esta sección, contacte al administrador del sistema. Proporcione el código de error (si aparece) y una descripción de qué acción estaba realizando cuando ocurrió.</p>
     </div>
   </section>
 
   <!-- ══════════ REFERENCIAS ══════════ -->
   <section id="sec-referencias" class="section">
     <div class="page-header">
-      <p class="page-label">Sección 9</p>
+      <p class="page-label">Sección 10</p>
       <h2 class="page-title">Referencias</h2>
     </div>
     <p>Las siguientes referencias corresponden a los recursos consultados durante el desarrollo del sistema Chroniq y la elaboración de este manual, organizados conforme a las normas APA (7.ª edición).</p>
@@ -695,8 +854,28 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
+function toggleSidebarWidth() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('collapsed');
+  const btn = document.querySelector('.sidebar-toggle-btn');
+  btn.textContent = sidebar.classList.contains('collapsed') ? '»' : '«';
+  localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+}
+
+// Cargar estado colapsado guardado
+function initSidebarState() {
+  const isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+  const sidebar = document.getElementById('sidebar');
+  const btn = document.querySelector('.sidebar-toggle-btn');
+  if (isCollapsed) {
+    sidebar.classList.add('collapsed');
+    btn.textContent = '»';
+  }
+}
+
 // Activar primer link en sidebar
 document.addEventListener('DOMContentLoaded', () => {
+  initSidebarState();
   const first = document.querySelector('.nav-link');
   if (first) first.classList.add('active');
 });

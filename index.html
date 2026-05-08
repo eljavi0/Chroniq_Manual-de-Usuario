@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Usuario — Chroniq</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOTÓN MÓVIL -->
+<button id="menu-toggle" onclick="toggleSidebar()" title="Menú">☰</button>
+
+<!-- ══════════════════════════════════════
+     BARRA LATERAL DE NAVEGACIÓN
+══════════════════════════════════════ -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <h1>Chroniq</h1>
+    <p>Manual de Usuario</p>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Inicio</div>
+    <a class="nav-link active" onclick="show('portada')">
+      <span class="nav-icon">🏠</span> Portada
+    </a>
+    <a class="nav-link" onclick="show('toc')">
+      <span class="nav-icon">📋</span> Tabla de contenidos
+    </a>
+    <a class="nav-link" onclick="show('ilustraciones')">
+      <span class="nav-icon">🖼️</span> Tabla de ilustraciones
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Primeros pasos</div>
+    <a class="nav-link" onclick="show('intro')">
+      <span class="nav-icon">📖</span> Introducción
+    </a>
+    <a class="nav-link" onclick="show('recomendaciones')">
+      <span class="nav-icon">💡</span> Recomendaciones
+    </a>
+    <a class="nav-link" onclick="show('objetivos')">
+      <span class="nav-icon">🎯</span> Objetivos del manual
+    </a>
+    <a class="nav-link" onclick="show('dirigido')">
+      <span class="nav-icon">👥</span> ¿A quién va dirigido?
+    </a>
+    <a class="nav-link" onclick="show('conocer')">
+      <span class="nav-icon">🔍</span> Lo que debo conocer
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Funcionalidades</div>
+    <a class="nav-link" onclick="show('f1')">
+      <span class="nav-icon">🔑</span> F1 · Inicio de sesión
+    </a>
+    <a class="nav-link" onclick="show('f2')">
+      <span class="nav-icon">📅</span> F2 · Registrar un evento
+    </a>
+    <a class="nav-link" onclick="show('f3')">
+      <span class="nav-icon">🗂️</span> F3 · Consultar eventos
+    </a>
+    <a class="nav-link" onclick="show('f4')">
+      <span class="nav-icon">✏️</span> F4 · Actualizar un evento
+    </a>
+    <a class="nav-link" onclick="show('f5')">
+      <span class="nav-icon">➕</span> F5 · Agregar participantes
+    </a>
+    <a class="nav-link" onclick="show('f6')">
+      <span class="nav-icon">🚫</span> F6 · Deshabilitar un evento
+    </a>
+    <a class="nav-link" onclick="show('f7')">
+      <span class="nav-icon">📆</span> F7 · Mis eventos (Invitado)
+    </a>
+    <a class="nav-link" onclick="show('f8')">
+      <span class="nav-icon">🚪</span> F8 · Cerrar sesión
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Cierre</div>
+    <a class="nav-link" onclick="show('referencias')">
+      <span class="nav-icon">📚</span> Referencias
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     CONTENIDO PRINCIPAL
+══════════════════════════════════════ -->
+<main id="main">
+
+  <!-- ══════════ PORTADA ══════════ -->
+  <section id="sec-portada" class="section active">
+    <div class="cover-badge">Manual de Usuario · Versión 1.0</div>
+    <div class="cover-line"></div>
+    <h1 class="cover-title">Chroniq<br><span>Gestor de Eventos</span></h1>
+    <p class="cover-sub">Guía completa para organizar, consultar y gestionar eventos de manera fácil y segura.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Versión</label>
+        <span>1.0</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Año</label>
+        <span>2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Clasificación</label>
+        <span>Documento público</span>
+      </div>
+    </div>
+
+    <p class="cover-toc-label">Ir directamente a una sección</p>
+    <div class="cover-toc-grid">
+      <button class="cover-toc-btn" onclick="show('intro')">        <span class="ctn">01</span> Introducción</button>
+      <button class="cover-toc-btn" onclick="show('recomendaciones')"><span class="ctn">02</span> Recomendaciones</button>
+      <button class="cover-toc-btn" onclick="show('dirigido')">     <span class="ctn">03</span> ¿A quién va dirigido?</button>
+      <button class="cover-toc-btn" onclick="show('conocer')">      <span class="ctn">04</span> Lo que debo conocer</button>
+      <button class="cover-toc-btn" onclick="show('f1')">           <span class="ctn">F1</span> Inicio de sesión</button>
+      <button class="cover-toc-btn" onclick="show('f2')">           <span class="ctn">F2</span> Registrar un evento</button>
+      <button class="cover-toc-btn" onclick="show('f3')">           <span class="ctn">F3</span> Consultar eventos</button>
+      <button class="cover-toc-btn" onclick="show('f4')">           <span class="ctn">F4</span> Actualizar un evento</button>
+      <button class="cover-toc-btn" onclick="show('f5')">           <span class="ctn">F5</span> Agregar participantes</button>
+      <button class="cover-toc-btn" onclick="show('f6')">           <span class="ctn">F6</span> Deshabilitar un evento</button>
+      <button class="cover-toc-btn" onclick="show('f7')">           <span class="ctn">F7</span> Mis eventos (Invitado)</button>
+      <button class="cover-toc-btn" onclick="show('f8')">           <span class="ctn">F8</span> Cerrar sesión</button>
+    </div>
+  </section>
+
+  <!-- ══════════ TABLA DE CONTENIDOS ══════════ -->
+  <section id="sec-toc" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 1</p>
+      <h2 class="page-title">Tabla de contenidos</h2>
+    </div>
+    <p>A continuación encontrará la estructura completa de este manual. Puede hacer clic sobre cualquier elemento para ir directamente a esa sección.</p>
+    <div class="toc-grid">
+      <a class="toc-item" onclick="show('portada')">       <span class="toc-num">01</span><span class="toc-label">Portada</span></a>
+      <a class="toc-item" onclick="show('toc')">           <span class="toc-num">02</span><span class="toc-label">Tabla de contenidos</span></a>
+      <a class="toc-item" onclick="show('ilustraciones')"> <span class="toc-num">03</span><span class="toc-label">Tabla de ilustraciones</span></a>
+      <a class="toc-item" onclick="show('intro')">         <span class="toc-num">04</span><span class="toc-label">Introducción</span></a>
+      <a class="toc-item" onclick="show('recomendaciones')"><span class="toc-num">05</span><span class="toc-label">Recomendaciones</span></a>
+      <a class="toc-item" onclick="show('objetivos')">     <span class="toc-num">06</span><span class="toc-label">Objetivos del manual</span></a>
+      <a class="toc-item" onclick="show('dirigido')">      <span class="toc-num">07</span><span class="toc-label">¿A quién va dirigido?</span></a>
+      <a class="toc-item" onclick="show('conocer')">       <span class="toc-num">08</span><span class="toc-label">Lo que debo conocer</span></a>
+      <a class="toc-item" onclick="show('f1')">            <span class="toc-num">F1</span><span class="toc-label">Inicio de sesión</span></a>
+      <a class="toc-item" onclick="show('f2')">            <span class="toc-num">F2</span><span class="toc-label">Registrar un evento</span></a>
+      <a class="toc-item" onclick="show('f3')">            <span class="toc-num">F3</span><span class="toc-label">Consultar eventos (Líder)</span></a>
+      <a class="toc-item" onclick="show('f4')">            <span class="toc-num">F4</span><span class="toc-label">Actualizar un evento</span></a>
+      <a class="toc-item" onclick="show('f5')">            <span class="toc-num">F5</span><span class="toc-label">Agregar participantes</span></a>
+      <a class="toc-item" onclick="show('f6')">            <span class="toc-num">F6</span><span class="toc-label">Deshabilitar un evento</span></a>
+      <a class="toc-item" onclick="show('f7')">            <span class="toc-num">F7</span><span class="toc-label">Mis eventos (Invitado)</span></a>
+      <a class="toc-item" onclick="show('f8')">            <span class="toc-num">F8</span><span class="toc-label">Cerrar sesión</span></a>
+      <a class="toc-item" onclick="show('referencias')">   <span class="toc-num">09</span><span class="toc-label">Referencias</span></a>
+    </div>
+  </section>
+
+  <!-- ══════════ TABLA DE ILUSTRACIONES ══════════ -->
+  <section id="sec-ilustraciones" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 2</p>
+      <h2 class="page-title">Tabla de ilustraciones</h2>
+    </div>
+    <p>El presente manual incluye representaciones de las pantallas del sistema Chroniq. La siguiente tabla relaciona cada figura con su sección correspondiente, en el orden en que aparecen en el documento.</p>
+    <br>
+    <table class="ill-table">
+      <thead>
+        <tr>
+          <th>N.°</th>
+          <th>Pantalla</th>
+          <th>Descripción</th>
+          <th>Sección</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Fig. 1</td><td>Inicio de sesión</td><td>Formulario de acceso con número de cédula y contraseña</td><td>F1</td></tr>
+        <tr><td>Fig. 2</td><td>Error de credenciales</td><td>Mensaje de error al ingresar datos incorrectos</td><td>F1</td></tr>
+        <tr><td>Fig. 3</td><td>Formulario Crear Evento</td><td>Campos para registrar nombre, tipo, fecha y hora</td><td>F2</td></tr>
+        <tr><td>Fig. 4</td><td>Error de horario al crear evento</td><td>Mensaje cuando el horario ya está ocupado</td><td>F2</td></tr>
+        <tr><td>Fig. 5</td><td>Panel principal del Líder</td><td>Tabla de eventos con opciones de gestión disponibles</td><td>F3</td></tr>
+        <tr><td>Fig. 6</td><td>Formulario Actualizar Evento</td><td>Edición de los datos de un evento existente</td><td>F4</td></tr>
+        <tr><td>Fig. 7</td><td>Formulario Agregar Participantes</td><td>Dos paneles: invitados disponibles e inscritos al evento</td><td>F5</td></tr>
+        <tr><td>Fig. 8</td><td>Registro de nuevo invitado</td><td>Formulario para crear un nuevo usuario invitado</td><td>F5</td></tr>
+        <tr><td>Fig. 9</td><td>Error de participante con conflicto</td><td>Mensaje cuando el invitado ya tiene otro evento en el mismo horario</td><td>F5</td></tr>
+        <tr><td>Fig. 10</td><td>Confirmación de deshabilitar evento</td><td>Cuadro de confirmación antes de deshabilitar</td><td>F6</td></tr>
+        <tr><td>Fig. 11</td><td>Panel del Invitado</td><td>Listado de próximos eventos asignados al usuario</td><td>F7</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══════════ INTRODUCCIÓN ══════════ -->
+  <section id="sec-intro" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 3</p>
+      <h2 class="page-title">Introducción</h2>
+    </div>
+    <p><strong>Chroniq</strong> es una aplicación de escritorio diseñada para simplificar la organización y gestión de eventos. Permite programar actividades, asignar participantes y controlar los horarios de manera ordenada, evitando conflictos y errores de planeación.</p>
+    <p>El sistema cuenta con dos tipos de usuarios: el <strong>Líder</strong>, quien tiene control total para crear, consultar, actualizar y deshabilitar eventos, así como gestionar la lista de participantes; y el <strong>Invitado</strong>, quien puede consultar de forma sencilla los eventos a los que ha sido asignado.</p>
+    <p>Este manual fue elaborado para guiar a los usuarios en el uso correcto de cada funcionalidad, describiendo paso a paso lo que deben hacer, qué esperar como respuesta del sistema y cómo actuar si algo no sale como se esperaba.</p>
+    <div class="info-box blue">
+      <span class="box-label" style="color:var(--info);">ℹ️ Versión del manual</span>
+      <p>Este documento corresponde a la versión 1.0 de Chroniq.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ RECOMENDACIONES ══════════ -->
+  <section id="sec-recomendaciones" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 4</p>
+      <h2 class="page-title">Recomendaciones</h2>
+    </div>
+    <p>Antes de empezar a usar Chroniq, tenga en cuenta estas recomendaciones para sacarle el mejor provecho y evitar inconvenientes.</p>
+
+    <h3>Antes de abrir la aplicación</h3>
+    <ul>
+      <li>Asegúrese de que la aplicación esté correctamente instalada en su computador. Si no puede abrirla, contacte a la persona encargada de soporte.</li>
+      <li>La aplicación está diseñada para funcionar en computadores con sistema operativo <strong>Windows</strong>.</li>
+    </ul>
+
+    <h3>Buenas prácticas al usar el sistema</h3>
+    <ul>
+      <li>Ingrese el número de cédula sin puntos, comas ni espacios; solo dígitos.</li>
+      <li>Al crear o actualizar un evento, verifique que la <strong>fecha de inicio sea siempre anterior a la fecha de fin</strong>.</li>
+      <li>Antes de deshabilitar un evento, confirme que ya no se vaya a realizar, ya que esta acción no se puede revertir desde la aplicación.</li>
+      <li>Al registrar un nuevo invitado, use un número de cédula que no haya sido registrado antes.</li>
+      <li>Cierre sesión correctamente usando el botón correspondiente en cada pantalla, en lugar de cerrar la ventana directamente.</li>
+    </ul>
+
+    <h3>Seguridad y acceso</h3>
+    <div class="info-box warn">
+      <span class="box-label" style="color:var(--warning);">⚠️ Importante</span>
+      <p>No comparta sus credenciales de acceso (número de cédula y contraseña) con otras personas. El rol de <strong>Líder</strong> tiene acceso completo al sistema, por lo que debe ser asignado solo a personal autorizado.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ OBJETIVOS ══════════ -->
+  <section id="sec-objetivos" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 5</p>
+      <h2 class="page-title">Objetivos del manual</h2>
+    </div>
+
+    <h3>Objetivo general</h3>
+    <p>Brindar a los usuarios de Chroniq una guía clara y sencilla que les permita entender y manejar todas las funciones del sistema, sin importar su experiencia previa con aplicaciones de este tipo.</p>
+
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li>Explicar cómo ingresar al sistema según el tipo de usuario.</li>
+      <li>Describir paso a paso cómo crear, consultar, actualizar y deshabilitar eventos.</li>
+      <li>Orientar al Líder en el proceso de registrar nuevos invitados y asignarlos a eventos.</li>
+      <li>Indicar al usuario Invitado cómo consultar los eventos en los que fue incluido.</li>
+      <li>Mostrar los mensajes de error más comunes y cómo resolverlos.</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ DIRIGIDO A ══════════ -->
+  <section id="sec-dirigido" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 6</p>
+      <h2 class="page-title">¿A quién va dirigido?</h2>
+    </div>
+    <p>Este manual está pensado para los dos tipos de usuarios que interactúan con Chroniq:</p>
+
+    <h3>Usuario Líder</h3>
+    <div style="margin-bottom:1rem;">
+      <span class="role-chip">👑 Líder</span>
+    </div>
+    <p>Es la persona encargada de organizar los eventos. Tiene acceso completo al sistema: puede crear, consultar, actualizar y deshabilitar eventos, registrar nuevos invitados y asignarlos a las actividades programadas. Solo se necesita saber usar aplicaciones básicas de Windows para operar este rol sin dificultad.</p>
+
+    <h3>Usuario Invitado</h3>
+    <div style="margin-bottom:1rem;">
+      <span class="role-chip guest">🙋 Invitado</span>
+    </div>
+    <p>Es la persona que participa en los eventos. Su acceso es más limitado: únicamente puede ver los eventos futuros a los que ha sido asignado por un Líder. No se requiere ningún conocimiento técnico para usar este perfil.</p>
+
+    <div class="info-box green">
+      <span class="box-label" style="color:var(--success);">✅ Sin conocimientos técnicos requeridos</span>
+      <p>No necesita saber de programación ni de bases de datos para usar Chroniq. Con saber abrir ventanas, completar formularios y hacer clic en botones es más que suficiente.</p>
+    </div>
+  </section>
+
+  <!-- ══════════ LO QUE DEBO CONOCER ══════════ -->
+  <section id="sec-conocer" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 7</p>
+      <h2 class="page-title">Lo que debo conocer</h2>
+    </div>
+    <p>Antes de usar Chroniq, es útil familiarizarse con algunos términos y elementos que aparecen dentro de la aplicación.</p>
+
+    <h3>Conceptos clave</h3>
+    <h4>Evento</h4>
+    <p>Es la actividad central del sistema. Tiene un nombre, una categoría, una fecha y hora de inicio, y una fecha y hora de finalización. El sistema se asegura automáticamente de que no haya dos eventos con el mismo horario.</p>
+
+    <h4>Líder</h4>
+    <p>Tipo de usuario con acceso completo. Gestiona todos los eventos e invitados del sistema.</p>
+
+    <h4>Invitado</h4>
+    <p>Tipo de usuario que puede ser creado desde la aplicación. Participa en los eventos a los que fue asignado y solo puede ver su propio listado de actividades.</p>
+
+    <h4>Número de cédula</h4>
+    <p>Es el identificador de cada usuario en el sistema. Se usa para iniciar sesión y para evitar registros repetidos. Debe ser un número sin puntos ni espacios.</p>
+
+    <h3>Elementos de la pantalla</h3>
+    <ul>
+      <li><strong>Tabla de registros:</strong> Muestra listas de eventos o invitados en filas y columnas. Para seleccionar un elemento, haga clic sobre su fila.</li>
+      <li><strong>Selector de fecha:</strong> Permite elegir una fecha usando un pequeño calendario que aparece en pantalla.</li>
+      <li><strong>Selector de hora:</strong> Permite elegir la hora usando flechas para aumentar o disminuir el valor.</li>
+      <li><strong>Botones de acción:</strong> Cada pantalla tiene botones claramente etiquetados con lo que hacen: Crear, Actualizar, Deshabilitar, Volver, etc.</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ F1 – INICIO DE SESIÓN ══════════ -->
+  <section id="sec-f1" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 1</p>
+      <h2 class="page-title">Inicio de sesión</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F1</div>
+        <h3>Inicio de sesión</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Es la primera pantalla que ve cualquier usuario al abrir Chroniq. Aquí se ingresa el número de cédula y la contraseña para acceder. El sistema reconoce automáticamente si es Líder o Invitado y muestra la pantalla correspondiente.</p>
+
+        <!-- Fig. 1 -->
+        <div class="screen-mock">
+          <img src="img/login.png" alt="Pantalla de inicio de sesión" >
+        </div>
+        <p class="fig-caption"><em>Fig. 1 — Pantalla de inicio de sesión</em></p>
+
+        <h4>Pasos para ingresar al sistema</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Abra la aplicación Chroniq en su computador.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">En el campo <strong>Número de cédula</strong>, escriba su número de identificación (solo dígitos, sin puntos ni espacios).</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">En el campo <strong>Contraseña</strong>, ingrese su contraseña.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Haga clic en el botón <strong>Ingresar</strong>. El sistema verificará sus datos y lo llevará automáticamente a su panel.</div></div>
+        </div>
+
+        <!-- Error mockup: credenciales incorrectas -->
+        <h4>Mensaje de error: datos incorrectos</h4>
+        <p>Si el número de cédula o la contraseña no son correctos, verá el siguiente mensaje:</p>
+        <div class="screen-mock">
+          <img src="img/login-error-credenciales.png" alt="Mensaje de error por datos incorrectos" >
+        </div>
+        <p class="fig-caption"><em>Fig. 2 — Mensaje de error al ingresar datos incorrectos</em></p>
+
+        <div class="info-box red">
+          <span class="box-label" style="color:var(--danger);">⚠️ ¿Olvidó sus datos?</span>
+          <p>Si no recuerda su número de cédula o contraseña, contacte al Líder del sistema para que le indique cómo proceder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F2 – REGISTRAR EVENTO ══════════ -->
+  <section id="sec-f2" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 2</p>
+      <h2 class="page-title">Registrar un evento</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F2</div>
+        <h3>Registrar un evento</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Permite al Líder crear un nuevo evento en el sistema indicando su nombre, tipo o categoría, y el rango de fechas y horas. Luego de crearlo, el sistema abre automáticamente la pantalla para agregar participantes al evento.</p>
+
+        <!-- Fig. 3 -->
+        <div class="screen-mock">
+          <img src="img/interfaz-lider-crear-evento.png" alt="Formulario para registrar un nuevo evento" >
+        </div>
+        <p class="fig-caption"><em>Fig. 3 — Formulario para registrar un nuevo evento</em></p>
+
+        <h4>Pasos para registrar un evento</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">En el panel del Líder, haga clic en el botón <strong>Crear</strong>.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Escriba el <strong>Nombre del evento</strong> (campo obligatorio).</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Seleccione el <strong>Tipo de evento</strong> con la categoría que corresponda (Académico, Cultural, Deportivo, etc.).</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Use el selector de fecha para elegir la <strong>Fecha de inicio</strong> y luego escriba o ajuste la <strong>Hora de inicio</strong>.</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text">Repita el paso anterior para la <strong>Fecha de fin</strong> y la <strong>Hora de fin</strong>. La fecha de fin debe ser posterior a la de inicio.</div></div>
+          <div class="step"><div class="step-num">6</div><div class="step-text">Haga clic en <strong>Crear evento</strong>. Si todo está correcto, el sistema abrirá automáticamente la pantalla para agregar participantes.</div></div>
+        </div>
+
+        <!-- Error: conflicto de horario -->
+        <h4>Mensaje de error: horario ocupado</h4>
+        <p>Si ya existe otro evento activo en el mismo horario, verá el siguiente aviso:</p>
+        <div class="screen-mock">
+         
+        </div>
+        <p class="fig-caption"><em>Fig. 4 — Mensaje cuando el horario ya está ocupado por otro evento</em></p>
+
+        <div class="info-box">
+          <span class="box-label" style="color:var(--accent);">💡 Recuerde</span>
+          <p>Si la fecha de fin es anterior o igual a la fecha de inicio, el sistema también mostrará un aviso solicitándole que corrija las fechas antes de continuar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F3 – CONSULTAR EVENTOS (LÍDER) ══════════ -->
+  <section id="sec-f3" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 3</p>
+      <h2 class="page-title">Consultar eventos</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F3</div>
+        <h3>Panel principal del Líder</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Luego de iniciar sesión, el Líder accede automáticamente a su panel principal, donde puede ver todos los eventos activos del sistema en una tabla. Desde aquí puede seleccionar cualquier evento y ejecutar las acciones disponibles.</p>
+
+        <!-- Fig. 5 -->
+        <div class="screen-mock">
+           <img src="img/interfaz-lider.png" alt="Panel principal del Líder con la lista de eventos activos" >
+        </div>
+        <p class="fig-caption"><em>Fig. 5 — Panel principal del Líder con la lista de eventos activos</em></p>
+
+        <h4>¿Cómo funciona este panel?</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Al iniciar sesión como Líder, el sistema carga automáticamente la tabla con todos los eventos activos.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Para seleccionar un evento, haga clic sobre su fila. La fila seleccionada se resaltará en azul claro.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Con un evento seleccionado, puede usar los botones: <strong>Actualizar</strong>, <strong>Agregar participante</strong> o <strong>Deshabilitar</strong>.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">El botón <strong>Crear</strong> no requiere selección previa: abre el formulario para registrar un evento nuevo.</div></div>
+        </div>
+
+        <div class="info-box blue">
+          <span class="box-label" style="color:var(--info);">ℹ️ Solo eventos activos</span>
+          <p>La tabla muestra únicamente los eventos habilitados. Los eventos deshabilitados ya no aparecen en este listado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F4 – ACTUALIZAR EVENTO ══════════ -->
+  <section id="sec-f4" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 4</p>
+      <h2 class="page-title">Actualizar un evento</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F4</div>
+        <h3>Actualizar un evento</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Permite al Líder modificar los datos de un evento que ya fue creado: su nombre, tipo y las fechas y horas de inicio y fin. Al abrir el formulario, los datos actuales del evento aparecen listos para editarse.</p>
+
+        <!-- Fig. 6 -->
+        <div class="screen-mock">
+          <img src="img/actualizar-evento.png" alt="Formulario para actualizar un evento existente" >
+        </div>
+        <p class="fig-caption"><em>Fig. 6 — Formulario para actualizar un evento existente</em></p>
+
+        <h4>Pasos para actualizar un evento</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">En el panel del Líder, haga clic sobre la fila del evento que desea modificar.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Haga clic en el botón <strong>Actualizar</strong>. Se abrirá el formulario con los datos actuales del evento.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Modifique los campos que necesite: nombre, tipo o fechas y horas.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Haga clic en <strong>Guardar cambios</strong>. El sistema verificará que las fechas sean correctas.</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text">Si todo está bien, la pantalla se cerrará y la tabla mostrará los datos actualizados.</div></div>
+        </div>
+
+        <div class="info-box blue">
+          <span class="box-label" style="color:var(--info);">ℹ️ Seleccione primero</span>
+          <p>Si hace clic en <strong>Actualizar</strong> sin haber seleccionado ningún evento en la tabla, el sistema le pedirá que seleccione uno antes de continuar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F5 – AGREGAR PARTICIPANTES ══════════ -->
+  <section id="sec-f5" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 5</p>
+      <h2 class="page-title">Agregar participantes</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F5</div>
+        <h3>Agregar participantes a un evento</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Permite al Líder asignar uno o más invitados registrados a un evento. La pantalla muestra dos paneles: los invitados <em>disponibles</em> (que aún no están en el evento) y los <em>inscritos</em> (los que ya fueron asignados). El sistema verifica automáticamente que el invitado no tenga otro evento en el mismo horario.</p>
+
+        <!-- Fig. 7 -->
+        <div class="screen-mock">
+          <img src="img/agregar-invitado.png" alt="Pantalla para agregar participantes a un evento">1
+        </div>
+        <p class="fig-caption"><em>Fig. 7 — Pantalla para agregar participantes a un evento</em></p>
+
+        <h4>Pasos para agregar un participante</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">En el panel del Líder, seleccione el evento al que desea agregar participantes y haga clic en <strong>Agregar participante</strong>.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">En el panel izquierdo (<em>Disponibles</em>), haga clic sobre el invitado que desea agregar.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Haga clic en el botón <strong>Agregar seleccionado</strong>. El sistema verificará que el invitado no tenga conflicto de horario.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Si todo está bien, el invitado pasará automáticamente al panel derecho (<em>Inscritos</em>).</div></div>
+          <div class="step"><div class="step-num">5</div><div class="step-text">Si el invitado que busca no aparece en la lista, use el botón <strong>Crear nuevo invitado</strong> para registrarlo.</div></div>
+        </div>
+
+        <!-- Registrar nuevo invitado -->
+        <h3>Registrar un nuevo invitado</h3>
+        <p>Si el participante que desea agregar no está registrado en el sistema, puede crearlo desde esta misma pantalla.</p>
+
+        <!-- Fig. 8 -->
+        <div class="screen-mock">
+          <img src="img/crear-nuevo-invitado.png" alt="Formulario para registrar un nuevo invitado" >
+        </div>
+        <p class="fig-caption"><em>Fig. 8 — Formulario para registrar un nuevo invitado</em></p>
+
+        <h4>Campos requeridos al crear un invitado</h4>
+        <ul>
+          <li><strong>Nombre completo</strong></li>
+          <li><strong>Género</strong> (se selecciona de la lista)</li>
+          <li><strong>Correo electrónico</strong> (debe incluir el símbolo @)</li>
+          <li><strong>Teléfono</strong> (máximo 10 dígitos)</li>
+          <li><strong>Edad</strong> (máximo 2 dígitos)</li>
+          <li><strong>Número de cédula</strong> (entre 4 y 10 dígitos; no puede estar repetido)</li>
+          <li><strong>Contraseña</strong> (no puede estar vacía)</li>
+        </ul>
+
+        <!-- Error: cédula duplicada -->
+        <h4>Mensaje de error: cédula ya registrada</h4>
+        <div class="screen-mock">
+         
+        </div>
+        <p class="fig-caption"><em>Fig. 9 — Error al intentar registrar una cédula que ya existe</em></p>
+
+        <!-- Error: conflicto de horario del invitado -->
+        <h4>Mensaje de error: conflicto de horario del participante</h4>
+        <p>Si el invitado que intenta agregar ya tiene asignado otro evento en el mismo horario, verá el siguiente aviso:</p>
+        <div class="screen-mock">
+          
+        </div>
+        <p class="fig-caption" style="margin-bottom:1.5rem;"><em>Fig. 9 (continuación) — Aviso de conflicto de horario al agregar un participante</em></p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F6 – DESHABILITAR EVENTO ══════════ -->
+  <section id="sec-f6" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 6</p>
+      <h2 class="page-title">Deshabilitar un evento</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F6</div>
+        <h3>Deshabilitar un evento</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Permite al Líder desactivar un evento que ya no se va a realizar. El evento no se elimina del todo, sino que se marca como inhabilitado y deja de aparecer en los listados activos del sistema.</p>
+
+        <!-- Fig. 10 -->
+        <div class="screen-mock">
+          <img src="img/deshabilitar-evento.png" alt="Cuadro de confirmación antes de deshabilitar un evento" >
+        </div>
+        <p class="fig-caption"><em>Fig. 10 — Cuadro de confirmación antes de deshabilitar un evento</em></p>
+
+        <h4>Pasos para deshabilitar un evento</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">En el panel del Líder, haga clic sobre la fila del evento que desea deshabilitar.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Haga clic en el botón <strong>Deshabilitar</strong>.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Aparecerá un mensaje de confirmación preguntando si está seguro. Haga clic en <strong>Sí, deshabilitar</strong> para confirmar, o en <strong>No</strong> para cancelar.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Si confirma, el evento desaparecerá de la tabla y el sistema mostrará una notificación indicando que fue deshabilitado correctamente.</div></div>
+        </div>
+
+        <div class="info-box red">
+          <span class="box-label" style="color:var(--danger);">⚠️ Acción no reversible desde la aplicación</span>
+          <p>Una vez que un evento es deshabilitado, no volverá a aparecer en Chroniq. Asegúrese de que realmente desea realizar esta acción antes de confirmar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F7 – PANEL DEL INVITADO ══════════ -->
+  <section id="sec-f7" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 7</p>
+      <h2 class="page-title">Mis eventos como Invitado</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F7</div>
+        <h3>Panel del Invitado — Mis próximos eventos</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Cuando un Invitado inicia sesión, el sistema le muestra directamente su panel personal con todos los eventos futuros a los que ha sido asignado. Este panel es solo de consulta: el Invitado no puede crear, editar ni deshabilitar eventos.</p>
+
+        <!-- Fig. 11 -->
+        <div class="screen-mock">
+          <img src="img/interfaz-invitado.png" alt="Panel del Invitado con sus próximos eventos asignados" >
+        </div>
+        <p class="fig-caption"><em>Fig. 11 — Panel del Invitado con sus próximos eventos asignados</em></p>
+
+        <h4>¿Cómo usar el panel de invitado?</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">Inicie sesión con su número de cédula y contraseña de Invitado.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">El sistema cargará automáticamente su panel con los eventos a los que ha sido asignado.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Revise la tabla: allí verá el nombre, tipo, fecha y hora de inicio y fin de cada evento.</div></div>
+          <div class="step"><div class="step-num">4</div><div class="step-text">Si no aparece ningún evento, significa que aún no ha sido asignado a ninguna actividad próxima. El sistema mostrará el mensaje <em>"No tienes eventos asignados próximos"</em>.</div></div>
+        </div>
+
+        <div class="info-box green">
+          <span class="box-label" style="color:var(--success);">✅ Solo eventos futuros</span>
+          <p>El sistema filtra automáticamente el listado para mostrar únicamente los eventos cuya fecha de inicio aún no ha pasado. Los eventos del pasado no aparecen en este panel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ F8 – CERRAR SESIÓN ══════════ -->
+  <section id="sec-f8" class="section">
+    <div class="page-header">
+      <p class="page-label">Funcionalidad 8</p>
+      <h2 class="page-title">Cerrar sesión</h2>
+    </div>
+    <div class="func-card">
+      <div class="func-card-header">
+        <div class="func-num">F8</div>
+        <h3>Cerrar sesión</h3>
+      </div>
+      <div class="func-card-body">
+        <p><strong>¿Para qué sirve?</strong> Permite a cualquier usuario (Líder o Invitado) salir de forma segura del sistema. Al cerrar sesión, el sistema regresa a la pantalla de inicio de sesión.</p>
+
+        <h4>¿Cómo cerrar sesión?</h4>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div class="step-text">En su panel (ya sea del Líder o del Invitado), busque el botón <strong>Cerrar sesión</strong> o <strong>Volver</strong> ubicado en la pantalla.</div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-text">Haga clic sobre él. El sistema lo llevará de regreso a la pantalla de inicio de sesión.</div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-text">Ahora otro usuario puede ingresar con sus propias credenciales.</div></div>
+        </div>
+
+        <div class="info-box warn">
+          <span class="box-label" style="color:var(--warning);">💡 Buena práctica</span>
+          <p>Use siempre el botón de <strong>Cerrar sesión</strong> en lugar de cerrar directamente la ventana de la aplicación. Esto garantiza que su sesión se cierre correctamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ REFERENCIAS ══════════ -->
+  <section id="sec-referencias" class="section">
+    <div class="page-header">
+      <p class="page-label">Sección 9</p>
+      <h2 class="page-title">Referencias</h2>
+    </div>
+    <p>Las siguientes referencias corresponden a los recursos consultados durante el desarrollo del sistema Chroniq y la elaboración de este manual, organizados conforme a las normas APA (7.ª edición).</p>
+
+    <h3>Referencias</h3>
+
+    <p class="apa-ref">American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7.ª ed.). https://doi.org/10.1037/0000165-000</p>
+
+    <p class="apa-ref">Pressman, R. S., & Maxim, B. R. (2020). <em>Ingeniería del software: Un enfoque práctico</em> (8.ª ed.). McGraw-Hill Education.</p>
+
+    <p class="apa-ref">Sommerville, I. (2016). <em>Ingeniería de software</em> (10.ª ed.). Pearson Educación.</p>
+
+    <br>
+    <div class="info-box">
+      <span class="box-label" style="color:var(--accent);">📋 Nota sobre el formato APA</span>
+      <p>Las referencias se presentan en orden alfabético por apellido del primer autor o nombre de la organización, con sangría francesa, conforme a las directrices de la 7.ª edición de APA.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const sec = document.getElementById('sec-' + id);
+  if (sec) {
+    sec.classList.add('active');
+    document.getElementById('main').scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const active = [...document.querySelectorAll('.nav-link')].find(l =>
+    l.getAttribute('onclick') && l.getAttribute('onclick').includes("'" + id + "'")
+  );
+  if (active) active.classList.add('active');
+  if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+}
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// Activar primer link en sidebar
+document.addEventListener('DOMContentLoaded', () => {
+  const first = document.querySelector('.nav-link');
+  if (first) first.classList.add('active');
+});
+</script>
+</body>
+</html>

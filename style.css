@@ -12,7 +12,7 @@
   --accent-hover:  #0369a1;
   --text:          #111827;
   --text-muted:    #4b5563;
-  --surface:       #f9fafb;
+  --surface:       #e8eef7;   /* pastel azul-gris — suave, no cansa la vista */
   --white:         #ffffff;
   --border:        #e5e7eb;
   --sidebar-w:     265px;
@@ -32,7 +32,7 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   color: var(--text);
-  background: #e2e3ed;
+  background: var(--surface);
   line-height: 1.8;
 }
 
@@ -81,11 +81,22 @@ body {
 #sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 4px; }
 
 #sidebar.collapsed { width: 56px; }
+/* Oculta texto en logos y labels de sección */
 #sidebar.collapsed .sidebar-logo h1,
 #sidebar.collapsed .sidebar-logo p,
 #sidebar.collapsed .nav-section-label { display: none; }
-#sidebar.collapsed .nav-link { justify-content: center; padding: .55rem; font-size: 0; }
-#sidebar.collapsed .nav-link .nav-icon { font-size: 1.1rem; }
+/* font-size: 0 oculta los nodos de texto directos dentro del <a>
+   que no están en spans, sin afectar al icono emoji */
+#sidebar.collapsed .nav-link {
+  font-size: 0;
+  justify-content: center;
+  padding: .55rem;
+  border-left-color: transparent;
+}
+#sidebar.collapsed .nav-link.active { border-left-color: var(--accent); }
+/* Restaura el tamaño del icono (no le afecta font-size: 0 en emojis,
+   pero lo forzamos por si acaso) */
+#sidebar.collapsed .nav-icon { font-size: 1.15rem; width: auto; }
 #sidebar.collapsed .sidebar-logo { padding: 1.2rem .4rem .8rem; text-align: center; }
 
 .sidebar-logo {
@@ -230,6 +241,499 @@ li { margin-bottom: .38rem; }
 
 /* ═══ HAMBURGER MÓVIL ═══ */
 #menu-toggle { display: none; position: fixed; top: 1rem; left: 1rem; z-index: 200; background: var(--primary); color: #fff; border: none; border-radius: 7px; width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+
+
+/* ══════════════════════════════════════
+   FLOW DIAGRAM — Flujo de navegación
+   Nodos tipo wireframe, conectores CSS
+══════════════════════════════════════ */
+.flow-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  margin: 1.5rem 0 2.5rem;
+  max-width: 660px;            /* diagrama de ancho fijo para que los conectores sean precisos */
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Centrador de F1 / F8 ── */
+.fd-center { display: flex; justify-content: center; }
+
+/* ── Ramas lado a lado ── */
+.fd-branches {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* ═══════════════════════════════════
+   CONECTORES — líneas de flujo
+   El diagrama es 660px, ramas 1:1.
+   Centro: 50%
+   Líder center: 25%   Guest center: 75%
+   La barra horizontal va de 25% a 75%
+═══════════════════════════════════ */
+
+/* ── BIFURCACIÓN (F1 → ramas) ── */
+.fd-split {
+  position: relative;
+  height: 28px;
+  width: 100%;
+}
+/* Línea vertical bajando desde F1 */
+.fd-split::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-1px);
+  width: 2px; height: 50%;
+  background: rgba(125,211,252,.55);
+}
+/* Barra horizontal entre las dos ramas */
+.fd-split::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 25%; right: 25%;
+  height: 2px;
+  background: rgba(125,211,252,.55);
+}
+/* Caída izquierda (hacia Líder) */
+.fd-dl {
+  position: absolute;
+  top: 50%; left: 25%;
+  transform: translateX(-1px);
+  width: 2px; height: 50%;
+  background: rgba(125,211,252,.55);
+}
+/* Caída derecha (hacia Invitado) */
+.fd-dr {
+  position: absolute;
+  top: 50%; right: 25%;
+  transform: translateX(1px);
+  width: 2px; height: 50%;
+  background: rgba(125,211,252,.55);
+}
+
+/* ── CONVERGENCIA (ramas → F8) ── */
+.fd-merge {
+  position: relative;
+  height: 28px;
+  width: 100%;
+}
+/* Barra horizontal entre las dos ramas */
+.fd-merge::before {
+  content: '';
+  position: absolute;
+  bottom: 50%; left: 25%; right: 25%;
+  height: 2px;
+  background: rgba(125,211,252,.55);
+}
+/* Línea vertical subiendo a F8 */
+.fd-merge::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-1px);
+  width: 2px; height: 50%;
+  background: rgba(125,211,252,.55);
+}
+/* Subida desde Líder */
+.fd-ul {
+  position: absolute;
+  bottom: 50%; left: 25%;
+  transform: translateX(-1px);
+  width: 2px; height: 50%;
+  background: rgba(125,211,252,.55);
+}
+/* Subida desde Invitado */
+.fd-ur {
+  position: absolute;
+  bottom: 50%; right: 25%;
+  transform: translateX(1px);
+  width: 2px; height: 50%;
+  background: rgba(125,211,252,.55);
+}
+
+/* ═══════════════════════════════════
+   CAJAS DE RAMA
+═══════════════════════════════════ */
+.fd-branch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .85rem .75rem;
+  border-radius: 10px;
+  gap: .7rem;
+}
+.fd-leader {
+  background: rgba(2,132,199,.1);
+  border: 1px solid rgba(2,132,199,.3);
+}
+.fd-guest {
+  background: rgba(251,146,60,.1);
+  border: 1px solid rgba(251,146,60,.3);
+  justify-content: center;
+}
+.fd-btitle {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: rgba(255,255,255,.7);
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+.fd-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════
+   NODO — mini pantalla de escritorio
+═══════════════════════════════════ */
+.fn {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.22);
+  transition: transform .18s ease, box-shadow .18s ease, outline .18s ease;
+  min-width: 86px;
+  text-align: left;
+}
+.fn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(2,132,199,.4);
+  outline: 2.5px solid #7dd3fc;
+  outline-offset: 2px;
+}
+.fn:active { transform: translateY(-1px); }
+
+/* F1 y F8 ligeramente más grandes */
+.fn-lg { min-width: 108px; }
+
+/* Barra de título de la ventana */
+.fn-bar {
+  background: var(--primary);
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.fn-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  flex-shrink: 0;
+}
+.fn-win {
+  font-size: .52rem;
+  color: rgba(255,255,255,.38);
+  margin-left: 3px;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 72px;
+}
+
+/* Cuerpo del nodo */
+.fn-body {
+  padding: 9px 6px 8px;
+  background: #e8ecf4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+}
+.fn-ico { font-size: 1.45rem; line-height: 1; }
+.fn-lg .fn-ico { font-size: 1.7rem; }
+.fn-tag {
+  font-size: .57rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: .5px;
+}
+.fn-lbl {
+  font-size: .58rem;
+  color: #1a2540;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.fn-lg .fn-lbl { font-size: .63rem; }
+
+/* ══════════════════════════════════════
+   FLOW DIAGRAM VISUAL — Diagrama con imágenes
+══════════════════════════════════════ */
+
+.flow-diagram-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Pantalla individual */
+.flow-screen-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.flow-screen-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.flow-screen-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, .25);
+}
+
+.flow-screen-img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  background: #f5f5f5;
+}
+
+/* Overlay interactivo sobre la pantalla */
+.flow-screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .25s ease;
+  backdrop-filter: blur(0px);
+  padding: 1rem;
+}
+
+.flow-screen-container:hover .flow-screen-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(3px);
+}
+
+/* Botón en overlay centrado */
+.flow-screen-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  padding: 1rem 1.2rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .9rem;
+  transition: background .2s ease, transform .2s ease;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, .4);
+}
+
+.flow-screen-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.flow-btn-icon {
+  font-size: 1.8rem;
+  display: block;
+}
+
+.flow-btn-label {
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+/* Ramas lado a lado */
+.flow-branches-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flow-branch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flow-branch-label {
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text);
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  background: rgba(2, 132, 199, .08);
+}
+
+.flow-branch-leader {
+}
+
+.flow-branch-guest {
+}
+
+/* Overlay con grid para múltiples botones (Líder) */
+.flow-overlay-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "btn1 btn2"
+    "btn3 btn4"
+    "btn5 btn5";
+  gap: .6rem;
+  padding: 1.2rem;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.flow-overlay-grid button:nth-child(1) { grid-area: btn1; }
+.flow-overlay-grid button:nth-child(2) { grid-area: btn2; }
+.flow-overlay-grid button:nth-child(3) { grid-area: btn3; }
+.flow-overlay-grid button:nth-child(4) { grid-area: btn4; }
+.flow-overlay-grid button:nth-child(5) { grid-area: btn5; }
+
+/* Botones pequeños en overlay */
+.flow-overlay-btn {
+  padding: .5rem .7rem;
+  background: rgba(255, 255, 255, .95);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .75rem;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+  white-space: nowrap;
+}
+
+.flow-overlay-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.08);
+}
+
+.flow-btn-micro {
+  display: block;
+  font-size: .75rem;
+}
+
+/* Conectores visuales */
+.flow-connector {
+  width: 2px;
+  height: 1.2rem;
+  background: linear-gradient(180deg, rgba(2, 132, 199, .4) 0%, rgba(2, 132, 199, .2) 100%);
+  position: relative;
+}
+
+.flow-arrow-down::after,
+.flow-arrow-up::after {
+  content: '↓';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 1.5rem;
+  text-align: center;
+  top: 50%;
+  margin-top: -.8rem;
+}
+
+.flow-arrow-up::after {
+  content: '↑';
+}
+
+/* Responsive para diagrama visual */
+@media (max-width: 800px) {
+  .flow-diagram-visual {
+    max-width: 100%;
+    gap: 1.2rem;
+  }
+
+  .flow-branches-visual {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .flow-screen-img {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flow-diagram-visual {
+    margin: 1.5rem 0 2rem;
+  }
+
+  .flow-screen-img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .flow-overlay-grid {
+    grid-template-columns: 1fr;
+    gap: .4rem;
+    padding: .8rem;
+  }
+
+  .flow-screen-btn {
+    padding: .8rem 1rem;
+    font-size: .8rem;
+  }
+
+  .flow-btn-icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .flow-diagram { max-width: 100%; }
+  .fd-branches { flex-direction: column; }
+  .fd-split, .fd-merge { display: none; }
+  .fd-branch { width: 100%; }
+}
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 900px) {

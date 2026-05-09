@@ -120,6 +120,91 @@
       </div>
     </div>
 
+    <p class="cover-toc-label" style="margin-top:2rem">Flujo de navegación del sistema</p>
+    <div class="flow-diagram-visual">
+
+      <!-- F1: INICIO DE SESIÓN (centrado) -->
+      <div class="flow-screen-wrapper">
+        <div class="flow-screen-container">
+          <img src="img/Login.png" alt="F1 - Inicio de sesión" class="flow-screen-img">
+          <div class="flow-screen-overlay">
+            <button class="flow-screen-btn" onclick="show('f1')">
+              <span class="flow-btn-icon">🔑</span>
+              <span class="flow-btn-label">F1 · Inicio de sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conector visual -->
+      <div class="flow-connector"><span class="flow-arrow-down"></span></div>
+
+      <!-- RAMAS: LÍDER e INVITADO -->
+      <div class="flow-branches-visual">
+
+        <!-- RAMA LÍDER -->
+        <div class="flow-branch-container flow-branch-leader">
+          <div class="flow-screen-wrapper">
+            <div class="flow-screen-container">
+              <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-screen-img">
+              <div class="flow-screen-overlay flow-overlay-grid">
+                <button class="flow-overlay-btn" onclick="show('f2')" title="Registrar evento">
+                  <span class="flow-btn-micro">📅 F2</span>
+                </button>
+                <button class="flow-overlay-btn" onclick="show('f3')" title="Consultar eventos">
+                  <span class="flow-btn-micro">🗂️ F3</span>
+                </button>
+                <button class="flow-overlay-btn" onclick="show('f4')" title="Actualizar evento">
+                  <span class="flow-btn-micro">✏️ F4</span>
+                </button>
+                <button class="flow-overlay-btn" onclick="show('f5')" title="Agregar participantes">
+                  <span class="flow-btn-micro">➕ F5</span>
+                </button>
+                <button class="flow-overlay-btn" onclick="show('f6')" title="Deshabilitar evento">
+                  <span class="flow-btn-micro">🚫 F6</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flow-branch-label">👑 Líder</div>
+        </div>
+
+        <!-- RAMA INVITADO -->
+        <div class="flow-branch-container flow-branch-guest">
+          <div class="flow-screen-wrapper">
+            <div class="flow-screen-container">
+              <img src="img/interfaz-invitado.png" alt="Interfaz Invitado" class="flow-screen-img">
+              <div class="flow-screen-overlay">
+                <button class="flow-screen-btn" onclick="show('f7')">
+                  <span class="flow-btn-icon">📆</span>
+                  <span class="flow-btn-label">F7 · Ver mis eventos</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flow-branch-label">🙋 Invitado</div>
+        </div>
+
+      </div>
+
+      <!-- Conector visual de convergencia -->
+      <div class="flow-connector"><span class="flow-arrow-up"></span></div>
+
+      <!-- F8: CERRAR SESIÓN (centrado) -->
+      <div class="flow-screen-wrapper">
+        <div class="flow-screen-container">
+          <img src="img/salir-de-la-aplicacion.png" alt="F8 - Cerrar sesión" class="flow-screen-img">
+          <div class="flow-screen-overlay">
+            <button class="flow-screen-btn" onclick="show('f8')">
+              <span class="flow-btn-icon">🚪</span>
+              <span class="flow-btn-label">F8 · Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <p class="cover-toc-label">Ir directamente a una sección</p>
     <div class="cover-toc-grid">
       <button class="cover-toc-btn" onclick="show('intro')">        <span class="ctn">01</span> Introducción</button>

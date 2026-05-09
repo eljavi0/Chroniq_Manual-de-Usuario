@@ -739,6 +739,237 @@ li { margin-bottom: .38rem; }
   display: block;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   DIAGRAMA DE ÁRBOL DE FLUJO
+═════════════════════════════════════════════════════════════════ */
+
+.flow-diagram-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(2, 132, 199, .05) 0%, rgba(248, 250, 252, .5) 100%);
+  border-radius: 12px;
+}
+
+/* Niveles del árbol */
+.flow-tree-level {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.flow-tree-level.level-1 {
+  margin-bottom: 1rem;
+}
+
+.flow-tree-level.level-2 {
+  justify-content: space-around;
+  width: 100%;
+}
+
+.flow-tree-level.level-3 {
+  justify-content: space-around;
+  width: 100%;
+}
+
+.flow-tree-level.level-4 {
+  justify-content: center;
+}
+
+.flow-tree-level.level-5 {
+  justify-content: center;
+}
+
+/* Nodos del árbol */
+.flow-tree-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  cursor: pointer;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.flow-tree-node:hover {
+  transform: translateY(-8px);
+  filter: drop-shadow(0 8px 16px rgba(2, 132, 199, .3));
+}
+
+.flow-tree-img {
+  width: 180px;
+  height: auto;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+  transition: all .2s ease;
+}
+
+.flow-tree-node:hover .flow-tree-img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, .3);
+}
+
+.flow-tree-label {
+  font-size: .85rem;
+  color: var(--text);
+  text-align: center;
+  font-weight: 500;
+  max-width: 180px;
+  word-break: break-word;
+  background: var(--surface);
+  padding: .4rem .8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* Nodos especiales */
+.login-node .flow-tree-img {
+  width: 200px;
+}
+
+.guest-node .flow-tree-img,
+.leader-node .flow-tree-img {
+  width: 170px;
+}
+
+/* Conectores SVG */
+.flow-tree-svg {
+  width: 100%;
+  height: 120px;
+  color: var(--accent);
+  opacity: .7;
+}
+
+.flow-tree-svg.level-1-2 {
+  height: 150px;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+.flow-tree-svg.level-2-3 {
+  height: 130px;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+.flow-tree-svg.level-3-4 {
+  height: 140px;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+.flow-tree-svg.level-4-5 {
+  height: 140px;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .flow-diagram-tree {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .flow-tree-level {
+    gap: 2rem;
+  }
+
+  .flow-tree-img {
+    width: 150px;
+    max-height: 170px;
+  }
+
+  .login-node .flow-tree-img {
+    width: 160px;
+  }
+
+  .guest-node .flow-tree-img,
+  .leader-node .flow-tree-img {
+    width: 140px;
+  }
+
+  .flow-tree-label {
+    font-size: .8rem;
+    max-width: 150px;
+  }
+
+  .flow-tree-svg {
+    height: 100px;
+  }
+
+  .flow-tree-svg.level-1-2 {
+    height: 120px;
+  }
+
+  .flow-tree-svg.level-2-3 {
+    height: 110px;
+  }
+
+  .flow-tree-svg.level-3-4 {
+    height: 120px;
+  }
+
+  .flow-tree-svg.level-4-5 {
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flow-diagram-tree {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .flow-tree-level {
+    gap: 1.5rem;
+  }
+
+  .flow-tree-img {
+    width: 120px;
+    max-height: 140px;
+  }
+
+  .login-node .flow-tree-img {
+    width: 130px;
+  }
+
+  .guest-node .flow-tree-img,
+  .leader-node .flow-tree-img {
+    width: 110px;
+  }
+
+  .flow-tree-label {
+    font-size: .75rem;
+    max-width: 120px;
+    padding: .3rem .6rem;
+  }
+
+  .flow-tree-svg {
+    height: 80px;
+  }
+
+  .flow-tree-svg.level-1-2 {
+    height: 100px;
+  }
+
+  .flow-tree-svg.level-2-3 {
+    height: 90px;
+  }
+
+  .flow-tree-svg.level-3-4 {
+    height: 100px;
+  }
+
+  .flow-tree-svg.level-4-5 {
+    height: 100px;
+  }
+}
+
 .flow-detail.hidden {
   display: none !important;
 }

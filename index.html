@@ -121,85 +121,75 @@
     </div>
 
     <p class="cover-toc-label" style="margin-top:2rem">Flujo de navegación del sistema</p>
-    <div class="flow-diagram-visual">
+    <div class="flow-diagram-tree">
 
-      <!-- F1: INICIO DE SESIÓN (centrado) -->
-      <div class="flow-screen-wrapper">
-        <div class="flow-screen-container">
-          <img src="img/Login.png" alt="F1 - Inicio de sesión" class="flow-screen-img">
-          <div class="flow-screen-overlay">
-            <button class="flow-screen-btn" onclick="show('f1')">
-              <span class="flow-btn-icon">🔑</span>
-              <span class="flow-btn-label">F1 · Inicio de sesión</span>
-            </button>
-          </div>
+      <!-- NIVEL 1: Login -->
+      <div class="flow-tree-level level-1">
+        <div class="flow-tree-node login-node">
+          <img src="img/Login.png" alt="Login" class="flow-tree-img" onclick="show('f1')">
+          <div class="flow-tree-label">Login.png</div>
         </div>
       </div>
 
-      <!-- Conector visual -->
-      <div class="flow-connector"><span class="flow-arrow-down"></span></div>
+      <!-- Conectores nivel 1 a nivel 2 -->
+      <svg class="flow-tree-svg level-1-2">
+        <line x1="50%" y1="0" x2="25%" y2="100" stroke="currentColor" stroke-width="2"/>
+        <line x1="50%" y1="0" x2="75%" y2="100" stroke="currentColor" stroke-width="2"/>
+      </svg>
 
-      <!-- RAMAS: LÍDER e INVITADO -->
-      <div class="flow-branches-visual">
-
-        <!-- RAMA LÍDER -->
-        <div class="flow-branch-container flow-branch-leader">
-          <div class="flow-screen-wrapper">
-            <div class="flow-screen-container">
-              <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-screen-img">
-              <div class="flow-screen-overlay flow-overlay-grid">
-                <button class="flow-overlay-btn" onclick="showFlowDetail('f2-flow')" title="Registrar evento">
-                  <span class="flow-btn-micro">📅 F2</span>
-                </button>
-                <button class="flow-overlay-btn" onclick="show('f3')" title="Consultar eventos">
-                  <span class="flow-btn-micro">🗂️ F3</span>
-                </button>
-                <button class="flow-overlay-btn" onclick="showFlowDetail('f4-flow')" title="Actualizar evento">
-                  <span class="flow-btn-micro">✏️ F4</span>
-                </button>
-                <button class="flow-overlay-btn" onclick="showFlowDetail('f5-flow')" title="Agregar participantes">
-                  <span class="flow-btn-micro">➕ F5</span>
-                </button>
-                <button class="flow-overlay-btn" onclick="show('f6')" title="Deshabilitar evento">
-                  <span class="flow-btn-micro">🚫 F6</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="flow-branch-label">👑 Líder</div>
+      <!-- NIVEL 2: Interfaz Invitado y Líder -->
+      <div class="flow-tree-level level-2">
+        <div class="flow-tree-node guest-node">
+          <img src="img/interfaz-invitado.png" alt="Interfaz Invitado" class="flow-tree-img" onclick="show('f7')">
+          <div class="flow-tree-label">interfaz-invitado.png</div>
         </div>
-
-        <!-- RAMA INVITADO -->
-        <div class="flow-branch-container flow-branch-guest">
-          <div class="flow-screen-wrapper">
-            <div class="flow-screen-container">
-              <img src="img/interfaz-invitado.png" alt="Interfaz Invitado" class="flow-screen-img">
-              <div class="flow-screen-overlay">
-                <button class="flow-screen-btn" onclick="show('f7')">
-                  <span class="flow-btn-icon">📆</span>
-                  <span class="flow-btn-label">F7 · Ver mis eventos</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="flow-branch-label">🙋 Invitado</div>
+        <div class="flow-tree-node leader-node">
+          <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-tree-img" onclick="show('f2')">
+          <div class="flow-tree-label">interfaz-lider.png</div>
         </div>
-
       </div>
 
-      <!-- Conector visual de convergencia -->
-      <div class="flow-connector"><span class="flow-arrow-up"></span></div>
+      <!-- Conectores desde Líder (abajo y derecha) -->
+      <svg class="flow-tree-svg level-2-3">
+        <line x1="75%" y1="0" x2="55%" y2="80" stroke="currentColor" stroke-width="2"/>
+        <line x1="75%" y1="0" x2="95%" y2="80" stroke="currentColor" stroke-width="2"/>
+      </svg>
 
-      <!-- F8: CERRAR SESIÓN (centrado) -->
-      <div class="flow-screen-wrapper">
-        <div class="flow-screen-container">
-          <img src="img/salir-de-la-aplicacion.png" alt="F8 - Cerrar sesión" class="flow-screen-img">
-          <div class="flow-screen-overlay">
-            <button class="flow-screen-btn" onclick="show('f8')">
-              <span class="flow-btn-icon">🚪</span>
-              <span class="flow-btn-label">F8 · Cerrar sesión</span>
-            </button>
-          </div>
+      <!-- NIVEL 3: Crear Evento (izquierda) y Actualizar Evento (derecha) -->
+      <div class="flow-tree-level level-3">
+        <div class="flow-tree-node">
+          <img src="img/interfaz-lider-crear-evento.png" alt="Crear Evento" class="flow-tree-img" onclick="show('f2')">
+          <div class="flow-tree-label">interfaz-lider-crear-evento.png</div>
+        </div>
+        <div class="flow-tree-node">
+          <img src="img/actualizar-evento.png" alt="Actualizar Evento" class="flow-tree-img" onclick="show('f4')">
+          <div class="flow-tree-label">actualizar-evento.png</div>
+        </div>
+      </div>
+
+      <!-- Conector desde Crear Evento hacia abajo -->
+      <svg class="flow-tree-svg level-3-4">
+        <line x1="55%" y1="0" x2="55%" y2="100" stroke="currentColor" stroke-width="2"/>
+      </svg>
+
+      <!-- NIVEL 4: Agregar Invitado -->
+      <div class="flow-tree-level level-4">
+        <div class="flow-tree-node">
+          <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-tree-img" onclick="show('f5')">
+          <div class="flow-tree-label">agregar-invitado.png</div>
+        </div>
+      </div>
+
+      <!-- Conector desde Agregar Invitado hacia abajo -->
+      <svg class="flow-tree-svg level-4-5">
+        <line x1="50%" y1="0" x2="50%" y2="100" stroke="currentColor" stroke-width="2"/>
+      </svg>
+
+      <!-- NIVEL 5: Crear Nuevo Invitado -->
+      <div class="flow-tree-level level-5">
+        <div class="flow-tree-node">
+          <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-tree-img" onclick="show('f5')">
+          <div class="flow-tree-label">crear-nuevo-invitado.png</div>
         </div>
       </div>
 

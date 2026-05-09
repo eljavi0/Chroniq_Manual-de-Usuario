@@ -78,6 +78,9 @@
     <a class="nav-link" onclick="show('f8')">
       <span class="nav-icon">🚪</span> F8 · Cerrar sesión
     </a>
+    <a class="nav-link" onclick="show('diagrama-flujo')">
+      <span class="nav-icon">🔄</span> Diagrama de Flujo
+    </a>
   </div>
 
   <div class="nav-section">
@@ -118,81 +121,6 @@
         <label>Clasificación</label>
         <span>Documento público</span>
       </div>
-    </div>
-
-    <p class="cover-toc-label" style="margin-top:2rem">Flujo de navegación del sistema</p>
-    <div class="flow-diagram-tree">
-
-      <!-- NIVEL 1: Login -->
-      <div class="flow-tree-level level-1">
-        <div class="flow-tree-node login-node">
-          <img src="img/Login.png" alt="Login" class="flow-tree-img" onclick="show('f1')">
-          <div class="flow-tree-label">Login.png</div>
-        </div>
-      </div>
-
-      <!-- Conectores nivel 1 a nivel 2 -->
-      <svg class="flow-tree-svg level-1-2" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 50 0 Q 25 50 25 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M 50 0 Q 75 50 75 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 2: Interfaz Invitado y Líder -->
-      <div class="flow-tree-level level-2">
-        <div class="flow-tree-node guest-node">
-          <img src="img/interfaz-invitado.png" alt="Interfaz Invitado" class="flow-tree-img" onclick="show('f7')">
-          <div class="flow-tree-label">interfaz-invitado.png</div>
-        </div>
-        <div class="flow-tree-node leader-node">
-          <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-tree-img" onclick="show('f2')">
-          <div class="flow-tree-label">interfaz-lider.png</div>
-        </div>
-      </div>
-
-      <!-- Conectores desde Líder (abajo y derecha) -->
-      <svg class="flow-tree-svg level-2-3" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 75 0 Q 55 45 55 90" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M 75 0 Q 95 45 95 90" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 3: Crear Evento (izquierda) y Actualizar Evento (derecha) -->
-      <div class="flow-tree-level level-3">
-        <div class="flow-tree-node">
-          <img src="img/interfaz-lider-crear-evento.png" alt="Crear Evento" class="flow-tree-img" onclick="show('f2')">
-          <div class="flow-tree-label">interfaz-lider-crear-evento.png</div>
-        </div>
-        <div class="flow-tree-node">
-          <img src="img/actualizar-evento.png" alt="Actualizar Evento" class="flow-tree-img" onclick="show('f4')">
-          <div class="flow-tree-label">actualizar-evento.png</div>
-        </div>
-      </div>
-
-      <!-- Conector desde Crear Evento hacia abajo -->
-      <svg class="flow-tree-svg level-3-4" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 50 0 L 50 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 4: Agregar Invitado -->
-      <div class="flow-tree-level level-4">
-        <div class="flow-tree-node">
-          <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-tree-img" onclick="show('f5')">
-          <div class="flow-tree-label">agregar-invitado.png</div>
-        </div>
-      </div>
-
-      <!-- Conector desde Agregar Invitado hacia abajo -->
-      <svg class="flow-tree-svg level-4-5" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 50 0 L 50 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 5: Crear Nuevo Invitado -->
-      <div class="flow-tree-level level-5">
-        <div class="flow-tree-node">
-          <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-tree-img" onclick="show('f5')">
-          <div class="flow-tree-label">crear-nuevo-invitado.png</div>
-        </div>
-      </div>
-
     </div>
 
     <p class="cover-toc-label">Ir directamente a una sección</p>
@@ -888,6 +816,89 @@
           <p>Si está usando un ordenador compartido con otras personas, es especialmente importante cerrar sesión correctamente para proteger la privacidad de sus datos.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════ DIAGRAMA DE FLUJO ══════════ -->
+  <section id="sec-diagrama-flujo" class="section">
+    <div class="page-header">
+      <p class="page-label">Referencia visual</p>
+      <h2 class="page-title">Diagrama de Flujo del Sistema</h2>
+    </div>
+    <p style="margin-bottom:2rem;">En este diagrama se muestra el flujo de navegación completo del sistema Chroniq, desde el inicio de sesión hasta todas las funcionalidades disponibles para líderes e invitados.</p>
+    
+    <div class="flow-diagram-tree">
+
+      <!-- NIVEL 1: Login -->
+      <div class="flow-tree-level level-1">
+        <div class="flow-tree-node login-node">
+          <img src="img/Login.png" alt="Login" class="flow-tree-img" onclick="show('f1')">
+          <div class="flow-tree-label">Login.png</div>
+        </div>
+      </div>
+
+      <!-- Conectores nivel 1 a nivel 2 -->
+      <svg class="flow-tree-svg level-1-2" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <path d="M 50 0 Q 25 50 25 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 50 0 Q 75 50 75 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <!-- NIVEL 2: Interfaz Invitado y Líder -->
+      <div class="flow-tree-level level-2">
+        <div class="flow-tree-node guest-node">
+          <img src="img/interfaz-invitado.png" alt="Interfaz Invitado" class="flow-tree-img" onclick="show('f7')">
+          <div class="flow-tree-label">interfaz-invitado.png</div>
+        </div>
+        <div class="flow-tree-node leader-node">
+          <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-tree-img" onclick="show('f2')">
+          <div class="flow-tree-label">interfaz-lider.png</div>
+        </div>
+      </div>
+
+      <!-- Conectores desde Líder (abajo y derecha) -->
+      <svg class="flow-tree-svg level-2-3" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <path d="M 75 0 Q 55 45 55 90" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 75 0 Q 95 45 95 90" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <!-- NIVEL 3: Crear Evento (izquierda) y Actualizar Evento (derecha) -->
+      <div class="flow-tree-level level-3">
+        <div class="flow-tree-node">
+          <img src="img/interfaz-lider-crear-evento.png" alt="Crear Evento" class="flow-tree-img" onclick="show('f2')">
+          <div class="flow-tree-label">interfaz-lider-crear-evento.png</div>
+        </div>
+        <div class="flow-tree-node">
+          <img src="img/actualizar-evento.png" alt="Actualizar Evento" class="flow-tree-img" onclick="show('f4')">
+          <div class="flow-tree-label">actualizar-evento.png</div>
+        </div>
+      </div>
+
+      <!-- Conector desde Crear Evento hacia abajo -->
+      <svg class="flow-tree-svg level-3-4" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <path d="M 50 0 L 50 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <!-- NIVEL 4: Agregar Invitado -->
+      <div class="flow-tree-level level-4">
+        <div class="flow-tree-node">
+          <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-tree-img" onclick="show('f5')">
+          <div class="flow-tree-label">agregar-invitado.png</div>
+        </div>
+      </div>
+
+      <!-- Conector desde Agregar Invitado hacia abajo -->
+      <svg class="flow-tree-svg level-4-5" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <path d="M 50 0 L 50 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <!-- NIVEL 5: Crear Nuevo Invitado -->
+      <div class="flow-tree-level level-5">
+        <div class="flow-tree-node">
+          <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-tree-img" onclick="show('f5')">
+          <div class="flow-tree-label">crear-nuevo-invitado.png</div>
+        </div>
+      </div>
+
     </div>
   </section>
 

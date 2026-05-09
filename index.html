@@ -15,7 +15,6 @@
      BARRA LATERAL DE NAVEGACIÓN
 ══════════════════════════════════════ -->
 <nav id="sidebar">
-  <button class="sidebar-toggle-btn" onclick="toggleSidebarWidth()" title="Contraer/Expandir">«</button>
   <div class="sidebar-logo">
     <h1>Chroniq</h1>
     <p>Manual de Usuario</p>
@@ -91,6 +90,9 @@
     </a>
   </div>
 </nav>
+
+<!-- Botón colapsar/expandir sidebar — fuera del nav para evitar clip -->
+<button id="sidebar-toggle" onclick="toggleSidebarWidth()" title="Contraer/Expandir menú">«</button>
 
 <!-- ══════════════════════════════════════
      CONTENIDO PRINCIPAL
@@ -190,15 +192,15 @@
         <tr><td>Fig. 3c</td><td>Error: Falta tipo de evento</td><td>Mensaje cuando no se selecciona un tipo de evento</td><td>F2</td></tr>
         <tr><td>Fig. 3d</td><td>Error: Fechas inválidas</td><td>Mensaje cuando la fecha de fin es anterior a la de inicio</td><td>F2</td></tr>
         <tr><td>Fig. 3e</td><td>Error de horario ocupado</td><td>Mensaje cuando el horario ya está ocupado</td><td>F2</td></tr>
-        <tr><td>Fig. 5</td><td>Panel principal del Líder</td><td>Tabla de eventos con opciones de gestión disponibles</td><td>F3</td></tr>
-        <tr><td>Fig. 6</td><td>Formulario Actualizar Evento</td><td>Edición de los datos de un evento existente</td><td>F4</td></tr>
-        <tr><td>Fig. 7</td><td>Formulario Agregar Participantes</td><td>Dos paneles: invitados disponibles e inscritos al evento</td><td>F5</td></tr>
-        <tr><td>Fig. 8</td><td>Registro de nuevo invitado</td><td>Formulario para crear un nuevo usuario invitado</td><td>F5</td></tr>
-        <tr><td>Fig. 8a</td><td>Error: Cédula duplicada</td><td>Mensaje cuando se intenta registrar una cédula que ya existe</td><td>F5</td></tr>
-        <tr><td>Fig. 8b</td><td>Error: Conflicto de horario (Invitado)</td><td>Aviso cuando el invitado ya tiene otro evento en el mismo horario</td><td>F5</td></tr>
-        <tr><td>Fig. 10</td><td>Confirmación de deshabilitar evento</td><td>Cuadro de confirmación antes de deshabilitar</td><td>F6</td></tr>
-        <tr><td>Fig. 11</td><td>Panel del Invitado</td><td>Listado de próximos eventos asignados al usuario</td><td>F7</td></tr>
-        <tr><td>Fig. 12</td><td>Cierre de sesión</td><td>Confirmación antes de cerrar sesión</td><td>F8</td></tr>
+        <tr><td>Fig. 4</td><td>Panel principal del Líder</td><td>Tabla de eventos con opciones de gestión disponibles</td><td>F3</td></tr>
+        <tr><td>Fig. 5</td><td>Formulario Actualizar Evento</td><td>Edición de los datos de un evento existente</td><td>F4</td></tr>
+        <tr><td>Fig. 6</td><td>Formulario Agregar Participantes</td><td>Dos paneles: invitados disponibles e inscritos al evento</td><td>F5</td></tr>
+        <tr><td>Fig. 7</td><td>Registro de nuevo invitado</td><td>Formulario para crear un nuevo usuario invitado</td><td>F5</td></tr>
+        <tr><td>Fig. 7a</td><td>Error: Cédula duplicada</td><td>Mensaje cuando se intenta registrar una cédula que ya existe</td><td>F5</td></tr>
+        <tr><td>Fig. 7b</td><td>Error: Conflicto de horario (Invitado)</td><td>Aviso cuando el invitado ya tiene otro evento en el mismo horario</td><td>F5</td></tr>
+        <tr><td>Fig. 8</td><td>Confirmación de deshabilitar evento</td><td>Cuadro de confirmación antes de deshabilitar</td><td>F6</td></tr>
+        <tr><td>Fig. 9</td><td>Panel del Invitado</td><td>Listado de próximos eventos asignados al usuario</td><td>F7</td></tr>
+        <tr><td>Fig. 10</td><td>Cierre de sesión</td><td>Confirmación antes de cerrar sesión</td><td>F8</td></tr>
       </tbody>
     </table>
   </section>
@@ -435,8 +437,9 @@
         <!-- Error: conflicto de horario -->
         <h4>Mensaje de error: horario ocupado</h4>
         <p>Si ya existe otro evento activo en el mismo horario, verá el siguiente aviso:</p>
-        <div class="screen-mock">
-         
+        <div class="screen-mock-placeholder">
+          <strong>📸 Aquí va la captura: Fig. 3e</strong>
+          Mensaje de error cuando el horario ya está ocupado por otro evento
         </div>
         <p class="fig-caption"><em>Fig. 3e — Mensaje cuando el horario ya está ocupado por otro evento</em></p>
 
@@ -462,11 +465,11 @@
       <div class="func-card-body">
         <p><strong>¿Para qué sirve?</strong> Luego de iniciar sesión, el Líder accede automáticamente a su panel principal, donde puede ver todos los eventos activos del sistema en una tabla. Desde aquí puede seleccionar cualquier evento y ejecutar las acciones disponibles.</p>
 
-        <!-- Fig. 5 -->
+        <!-- Fig. 4 -->
         <div class="screen-mock">
            <img src="img/interfaz-lider.png" alt="Panel principal del Líder con la lista de eventos activos" >
         </div>
-        <p class="fig-caption"><em>Fig. 5 — Panel principal del Líder con la lista de eventos activos</em></p>
+        <p class="fig-caption"><em>Fig. 4 — Panel principal del Líder con la lista de eventos activos</em></p>
 
         <h4>¿Cómo funciona este panel?</h4>
         <div class="steps">
@@ -498,11 +501,11 @@
       <div class="func-card-body">
         <p><strong>¿Para qué sirve?</strong> Permite al Líder modificar los datos de un evento que ya fue creado: su nombre, tipo y las fechas y horas de inicio y fin. Al abrir el formulario, los datos actuales del evento aparecen listos para editarse.</p>
 
-        <!-- Fig. 6 -->
+        <!-- Fig. 5 -->
         <div class="screen-mock">
           <img src="img/actualizar-evento.png" alt="Formulario para actualizar un evento existente" >
         </div>
-        <p class="fig-caption"><em>Fig. 6 — Formulario para actualizar un evento existente</em></p>
+        <p class="fig-caption"><em>Fig. 5 — Formulario para actualizar un evento existente</em></p>
 
         <h4>Pasos para actualizar un evento</h4>
         <div class="steps">
@@ -535,11 +538,11 @@
       <div class="func-card-body">
         <p><strong>¿Para qué sirve?</strong> Permite al Líder asignar uno o más invitados registrados a un evento. La pantalla muestra dos paneles: los invitados <em>disponibles</em> (que aún no están en el evento) y los <em>inscritos</em> (los que ya fueron asignados). El sistema verifica automáticamente que el invitado no tenga otro evento en el mismo horario.</p>
 
-        <!-- Fig. 7 -->
+        <!-- Fig. 6 -->
         <div class="screen-mock">
           <img src="img/agregar-invitado.png" alt="Pantalla para agregar participantes a un evento">
         </div>
-        <p class="fig-caption"><em>Fig. 7 — Pantalla para agregar participantes a un evento</em></p>
+        <p class="fig-caption"><em>Fig. 6 — Pantalla para agregar participantes a un evento</em></p>
 
         <h4>Estructura de la pantalla</h4>
         <ul>
@@ -566,11 +569,11 @@
         <h3>Registrar un nuevo invitado</h3>
         <p>Si el participante que desea agregar no está registrado en el sistema, puede crearlo desde esta misma pantalla.</p>
 
-        <!-- Fig. 8 -->
+        <!-- Fig. 7 -->
         <div class="screen-mock">
           <img src="img/crear-nuevo-invitado.png" alt="Formulario para registrar un nuevo invitado" >
         </div>
-        <p class="fig-caption"><em>Fig. 8 — Formulario para registrar un nuevo invitado</em></p>
+        <p class="fig-caption"><em>Fig. 7 — Formulario para registrar un nuevo invitado</em></p>
 
         <h4>Campos requeridos al crear un invitado</h4>
         <ul>
@@ -591,18 +594,20 @@
         <!-- Error: cédula duplicada -->
         <h4>Mensaje de error: cédula ya registrada</h4>
         <p>Si intenta registrar un invitado con un número de cédula que ya existe en el sistema, verá el siguiente mensaje:</p>
-        <div class="screen-mock">
-         
+        <div class="screen-mock-placeholder">
+          <strong>📸 Aquí va la captura: Fig. 7a</strong>
+          Mensaje de error cuando la cédula ya está registrada en el sistema
         </div>
-        <p class="fig-caption"><em>Fig. 8a — Error al intentar registrar una cédula que ya existe</em></p>
+        <p class="fig-caption"><em>Fig. 7a — Error al intentar registrar una cédula que ya existe</em></p>
 
         <!-- Error: conflicto de horario del invitado -->
         <h4>Mensaje de error: conflicto de horario del participante</h4>
         <p>Si el invitado que intenta agregar ya tiene asignado otro evento en el mismo horario, verá el siguiente aviso:</p>
-        <div class="screen-mock">
-          
+        <div class="screen-mock-placeholder">
+          <strong>📸 Aquí va la captura: Fig. 7b</strong>
+          Aviso cuando el invitado ya tiene otro evento en el mismo horario
         </div>
-        <p class="fig-caption" style="margin-bottom:1.5rem;"><em>Fig. 8b — Aviso de conflicto de horario al agregar un participante</em></p>
+        <p class="fig-caption" style="margin-bottom:1.5rem;"><em>Fig. 7b — Aviso de conflicto de horario al agregar un participante</em></p>
 
         <div class="info-box warn">
           <span class="box-label" style="color:var(--warning);">💡 Resolución de conflictos</span>
@@ -627,11 +632,11 @@
       <div class="func-card-body">
         <p><strong>¿Para qué sirve?</strong> Permite al Líder desactivar un evento que ya no se va a realizar. El evento no se elimina del todo, sino que se marca como inhabilitado y deja de aparecer en los listados activos del sistema.</p>
 
-        <!-- Fig. 10 -->
+        <!-- Fig. 8 -->
         <div class="screen-mock">
           <img src="img/deshabilitar-evento.png" alt="Cuadro de confirmación antes de deshabilitar un evento" >
         </div>
-        <p class="fig-caption"><em>Fig. 10 — Cuadro de confirmación antes de deshabilitar un evento</em></p>
+        <p class="fig-caption"><em>Fig. 8 — Cuadro de confirmación antes de deshabilitar un evento</em></p>
 
         <h4>Pasos para deshabilitar un evento</h4>
         <div class="steps">
@@ -663,11 +668,11 @@
       <div class="func-card-body">
         <p><strong>¿Para qué sirve?</strong> Cuando un Invitado inicia sesión, el sistema le muestra directamente su panel personal con todos los eventos futuros a los que ha sido asignado. Este panel es solo de consulta: el Invitado no puede crear, editar ni deshabilitar eventos.</p>
 
-        <!-- Fig. 11 -->
+        <!-- Fig. 9 -->
         <div class="screen-mock">
           <img src="img/interfaz-invitado.png" alt="Panel del Invitado con sus próximos eventos asignados" >
         </div>
-        <p class="fig-caption"><em>Fig. 11 — Panel del Invitado con sus próximos eventos asignados</em></p>
+        <p class="fig-caption"><em>Fig. 9 — Panel del Invitado con sus próximos eventos asignados</em></p>
 
         <h4>¿Cómo usar el panel de invitado?</h4>
         <div class="steps">
@@ -713,11 +718,11 @@
           <div class="step"><div class="step-num">4</div><div class="step-text">Ahora otro usuario puede ingresar con sus propias credenciales.</div></div>
         </div>
 
-        <!-- Fig. 12 -->
+        <!-- Fig. 10 -->
         <div class="screen-mock">
           <img src="img/salir-de-la-aplicacion.png" alt="Pantalla de cierre de sesión y confirmación" >
         </div>
-        <p class="fig-caption"><em>Fig. 12 — Confirmación antes de cerrar sesión</em></p>
+        <p class="fig-caption"><em>Fig. 10 — Confirmación antes de cerrar sesión</em></p>
 
         <div class="info-box warn">
           <span class="box-label" style="color:var(--warning);">💡 Buena práctica de seguridad</span>
@@ -856,20 +861,25 @@ function toggleSidebar() {
 
 function toggleSidebarWidth() {
   const sidebar = document.getElementById('sidebar');
-  sidebar.classList.toggle('collapsed');
-  const btn = document.querySelector('.sidebar-toggle-btn');
-  btn.textContent = sidebar.classList.contains('collapsed') ? '»' : '«';
-  localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed'));
+  const btn     = document.getElementById('sidebar-toggle');
+  const collapsed = sidebar.classList.toggle('collapsed');
+
+  // Actualiza el ícono y la posición del botón
+  btn.textContent = collapsed ? '»' : '«';
+  btn.style.left  = collapsed ? '56px' : '265px';
+
+  localStorage.setItem('sidebar-collapsed', collapsed);
 }
 
-// Cargar estado colapsado guardado
+// Carga el estado guardado al iniciar
 function initSidebarState() {
-  const isCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
-  const sidebar = document.getElementById('sidebar');
-  const btn = document.querySelector('.sidebar-toggle-btn');
-  if (isCollapsed) {
+  const collapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+  const sidebar   = document.getElementById('sidebar');
+  const btn       = document.getElementById('sidebar-toggle');
+  if (collapsed) {
     sidebar.classList.add('collapsed');
     btn.textContent = '»';
+    btn.style.left  = '56px';
   }
 }
 

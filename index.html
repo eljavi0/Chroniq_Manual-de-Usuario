@@ -148,16 +148,16 @@
             <div class="flow-screen-container">
               <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-screen-img">
               <div class="flow-screen-overlay flow-overlay-grid">
-                <button class="flow-overlay-btn" onclick="show('f2')" title="Registrar evento">
+                <button class="flow-overlay-btn" onclick="showFlowDetail('f2-flow')" title="Registrar evento">
                   <span class="flow-btn-micro">📅 F2</span>
                 </button>
                 <button class="flow-overlay-btn" onclick="show('f3')" title="Consultar eventos">
                   <span class="flow-btn-micro">🗂️ F3</span>
                 </button>
-                <button class="flow-overlay-btn" onclick="show('f4')" title="Actualizar evento">
+                <button class="flow-overlay-btn" onclick="showFlowDetail('f4-flow')" title="Actualizar evento">
                   <span class="flow-btn-micro">✏️ F4</span>
                 </button>
-                <button class="flow-overlay-btn" onclick="show('f5')" title="Agregar participantes">
+                <button class="flow-overlay-btn" onclick="showFlowDetail('f5-flow')" title="Agregar participantes">
                   <span class="flow-btn-micro">➕ F5</span>
                 </button>
                 <button class="flow-overlay-btn" onclick="show('f6')" title="Deshabilitar evento">
@@ -221,6 +221,85 @@
       <button class="cover-toc-btn" onclick="show('f8')">           <span class="ctn">F8</span> Cerrar sesión</button>
     </div>
   </section>
+
+  <!-- ══════════════════════════════════════════════
+       SUBDIAGRAMAS DE FLUJO DETALLADO
+  ══════════════════════════════════════════════ -->
+
+  <!-- F2: REGISTRAR EVENTO FLUJO DETALLADO -->
+  <div id="f2-flow" class="flow-detail hidden">
+    <div class="flow-detail-header">
+      <button class="flow-detail-back" onclick="closeFlowDetail()">← Volver al menú principal</button>
+      <h3>F2 · Flujo de Registro de Evento</h3>
+    </div>
+    <div class="flow-detail-sequence">
+      <div class="flow-detail-step">
+        <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-detail-img">
+        <p class="flow-detail-caption">1. Panel del Líder</p>
+      </div>
+      <div class="flow-detail-arrow">↓</div>
+      <div class="flow-detail-step">
+        <img src="img/interfaz-lider-crear-evento.png" alt="Crear Evento" class="flow-detail-img">
+        <p class="flow-detail-caption">2. Formulario Crear Evento</p>
+      </div>
+      <div class="flow-detail-arrow">↓</div>
+      <div class="flow-detail-step">
+        <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-detail-img">
+        <p class="flow-detail-caption">3. Agregar Participantes</p>
+      </div>
+      <div class="flow-detail-arrow">↓</div>
+      <div class="flow-detail-step">
+        <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-detail-img">
+        <p class="flow-detail-caption">4. Crear Nuevo Invitado</p>
+        <button class="flow-btn-action" onclick="show('f2')">Ver documentación completa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- F4: ACTUALIZAR EVENTO FLUJO DETALLADO -->
+  <div id="f4-flow" class="flow-detail hidden">
+    <div class="flow-detail-header">
+      <button class="flow-detail-back" onclick="closeFlowDetail()">← Volver al menú principal</button>
+      <h3>F4 · Flujo de Actualización de Evento</h3>
+    </div>
+    <div class="flow-detail-sequence">
+      <div class="flow-detail-step">
+        <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-detail-img">
+        <p class="flow-detail-caption">1. Panel del Líder</p>
+      </div>
+      <div class="flow-detail-arrow">↓</div>
+      <div class="flow-detail-step">
+        <img src="img/actualizar-evento.png" alt="Actualizar Evento" class="flow-detail-img">
+        <p class="flow-detail-caption">2. Formulario Actualizar Evento</p>
+        <button class="flow-btn-action" onclick="show('f4')">Ver documentación completa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- F5: AGREGAR PARTICIPANTES FLUJO DETALLADO -->
+  <div id="f5-flow" class="flow-detail hidden">
+    <div class="flow-detail-header">
+      <button class="flow-detail-back" onclick="closeFlowDetail()">← Volver al menú principal</button>
+      <h3>F5 · Flujo de Agregar Participantes</h3>
+    </div>
+    <div class="flow-detail-sequence">
+      <div class="flow-detail-step">
+        <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-detail-img">
+        <p class="flow-detail-caption">1. Panel del Líder</p>
+      </div>
+      <div class="flow-detail-arrow">↓</div>
+      <div class="flow-detail-step">
+        <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-detail-img">
+        <p class="flow-detail-caption">2. Panel de Agregar Participantes</p>
+      </div>
+      <div class="flow-detail-arrow">↓</div>
+      <div class="flow-detail-step">
+        <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-detail-img">
+        <p class="flow-detail-caption">3. Crear Nuevo Invitado</p>
+        <button class="flow-btn-action" onclick="show('f5')">Ver documentación completa</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ══════════ TABLA DE CONTENIDOS ══════════ -->
   <section id="sec-toc" class="section">
@@ -926,6 +1005,7 @@
 <script>
 function show(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.flow-detail').forEach(d => d.classList.add('hidden'));
   const sec = document.getElementById('sec-' + id);
   if (sec) {
     sec.classList.add('active');
@@ -938,6 +1018,26 @@ function show(id) {
   );
   if (active) active.classList.add('active');
   if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+}
+
+function showFlowDetail(flowId) {
+  // Oculta todas las secciones normales
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  // Muestra el flujo detallado seleccionado
+  document.querySelectorAll('.flow-detail').forEach(d => d.classList.add('hidden'));
+  document.getElementById(flowId).classList.remove('hidden');
+  window.scrollTo(0, 0);
+  if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+}
+
+function closeFlowDetail() {
+  // Oculta todos los flujos detallados
+  document.querySelectorAll('.flow-detail').forEach(d => d.classList.add('hidden'));
+  // Muestra el diagrama principal (portada)
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const portada = document.getElementById('sec-portada');
+  if (portada) portada.classList.add('active');
+  window.scrollTo(0, 0);
 }
 
 function toggleSidebar() {

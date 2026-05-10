@@ -137,85 +137,6 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════
-       SUBDIAGRAMAS DE FLUJO DETALLADO
-  ══════════════════════════════════════════════ -->
-
-  <!-- F2: REGISTRAR EVENTO FLUJO DETALLADO -->
-  <div id="f2-flow" class="flow-detail hidden">
-    <div class="flow-detail-header">
-      <button class="flow-detail-back" onclick="closeFlowDetail()">← Volver al menú principal</button>
-      <h3>F2 · Flujo de Registro de Evento</h3>
-    </div>
-    <div class="flow-detail-sequence">
-      <div class="flow-detail-step">
-        <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-detail-img">
-        <p class="flow-detail-caption">1. Panel del Líder</p>
-      </div>
-      <div class="flow-detail-arrow">↓</div>
-      <div class="flow-detail-step">
-        <img src="img/interfaz-lider-crear-evento.png" alt="Crear Evento" class="flow-detail-img">
-        <p class="flow-detail-caption">2. Formulario Crear Evento</p>
-      </div>
-      <div class="flow-detail-arrow">↓</div>
-      <div class="flow-detail-step">
-        <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-detail-img">
-        <p class="flow-detail-caption">3. Agregar Participantes</p>
-      </div>
-      <div class="flow-detail-arrow">↓</div>
-      <div class="flow-detail-step">
-        <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-detail-img">
-        <p class="flow-detail-caption">4. Crear Nuevo Invitado</p>
-        <button class="flow-btn-action" onclick="show('f2')">Ver documentación completa</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- F4: ACTUALIZAR EVENTO FLUJO DETALLADO -->
-  <div id="f4-flow" class="flow-detail hidden">
-    <div class="flow-detail-header">
-      <button class="flow-detail-back" onclick="closeFlowDetail()">← Volver al menú principal</button>
-      <h3>F4 · Flujo de Actualización de Evento</h3>
-    </div>
-    <div class="flow-detail-sequence">
-      <div class="flow-detail-step">
-        <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-detail-img">
-        <p class="flow-detail-caption">1. Panel del Líder</p>
-      </div>
-      <div class="flow-detail-arrow">↓</div>
-      <div class="flow-detail-step">
-        <img src="img/actualizar-evento.png" alt="Actualizar Evento" class="flow-detail-img">
-        <p class="flow-detail-caption">2. Formulario Actualizar Evento</p>
-        <button class="flow-btn-action" onclick="show('f4')">Ver documentación completa</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- F5: AGREGAR PARTICIPANTES FLUJO DETALLADO -->
-  <div id="f5-flow" class="flow-detail hidden">
-    <div class="flow-detail-header">
-      <button class="flow-detail-back" onclick="closeFlowDetail()">← Volver al menú principal</button>
-      <h3>F5 · Flujo de Agregar Participantes</h3>
-    </div>
-    <div class="flow-detail-sequence">
-      <div class="flow-detail-step">
-        <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-detail-img">
-        <p class="flow-detail-caption">1. Panel del Líder</p>
-      </div>
-      <div class="flow-detail-arrow">↓</div>
-      <div class="flow-detail-step">
-        <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-detail-img">
-        <p class="flow-detail-caption">2. Panel de Agregar Participantes</p>
-      </div>
-      <div class="flow-detail-arrow">↓</div>
-      <div class="flow-detail-step">
-        <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-detail-img">
-        <p class="flow-detail-caption">3. Crear Nuevo Invitado</p>
-        <button class="flow-btn-action" onclick="show('f5')">Ver documentación completa</button>
-      </div>
-    </div>
-  </div>
-
   <!-- ══════════ TABLA DE CONTENIDOS ══════════ -->
   <section id="sec-toc" class="section">
     <div class="page-header">
@@ -776,11 +697,6 @@
           <img src="img/salir-de-la-aplicacion.png" alt="Pantalla de cierre de sesión y confirmación" >
         </div>
         <p class="fig-caption"><em>Fig. 10 — Confirmación antes de cerrar sesión</em></p>
-
-        <div class="info-box warn">
-          <span class="box-label" style="color:var(--warning);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> Buena práctica de seguridad</span>
-          <p>Use siempre el botón de <strong>Cerrar sesión</strong> en lugar de cerrar directamente la ventana de la aplicación. Esto garantiza que su sesión se cierre correctamente y que nadie más pueda acceder a su cuenta sin autorización.</p>
-        </div>
       </div>
     </div>
   </section>

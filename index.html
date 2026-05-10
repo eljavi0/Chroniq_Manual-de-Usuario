@@ -9,7 +9,7 @@
 <body>
 
 <!-- BOTÓN MÓVIL -->
-<button id="menu-toggle" onclick="toggleSidebar()" title="Menú">☰</button>
+<button id="menu-toggle" onclick="toggleSidebar()" title="Menú"><svg style="width:24px;height:24px;fill:white" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></button>
 
 <!-- ══════════════════════════════════════
      BARRA LATERAL DE NAVEGACIÓN
@@ -23,73 +23,70 @@
   <div class="nav-section">
     <div class="nav-section-label">Inicio</div>
     <a class="nav-link active" onclick="show('portada')">
-      <span class="nav-icon">🏠</span> Portada
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span> Portada
     </a>
     <a class="nav-link" onclick="show('toc')">
-      <span class="nav-icon">📋</span> Tabla de contenidos
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg></span> Tabla de contenidos
     </a>
     <a class="nav-link" onclick="show('ilustraciones')">
-      <span class="nav-icon">🖼️</span> Tabla de ilustraciones
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></span> Tabla de ilustraciones
     </a>
   </div>
 
   <div class="nav-section">
     <div class="nav-section-label">Primeros pasos</div>
     <a class="nav-link" onclick="show('intro')">
-      <span class="nav-icon">📖</span> Introducción
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5zm-2 0l-6.51 5.05L5 5h14zm0 13H5V7l6.51 5.05L19 7v11z"/></svg></span> Introducción
     </a>
     <a class="nav-link" onclick="show('recomendaciones')">
-      <span class="nav-icon">💡</span> Recomendaciones
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg></span> Recomendaciones
     </a>
     <a class="nav-link" onclick="show('objetivos')">
-      <span class="nav-icon">🎯</span> Objetivos del manual
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg></span> Objetivos del manual
     </a>
     <a class="nav-link" onclick="show('dirigido')">
-      <span class="nav-icon">👥</span> ¿A quién va dirigido?
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span> ¿A quién va dirigido?
     </a>
     <a class="nav-link" onclick="show('conocer')">
-      <span class="nav-icon">🔍</span> Lo que debo conocer
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"/></svg></span> Lo que debo conocer
     </a>
   </div>
 
   <div class="nav-section">
     <div class="nav-section-label">Funcionalidades</div>
     <a class="nav-link" onclick="show('f1')">
-      <span class="nav-icon">🔑</span> F1 · Inicio de sesión
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg></span> F1 · Inicio de sesión
     </a>
     <a class="nav-link" onclick="show('f2')">
-      <span class="nav-icon">📅</span> F2 · Registrar un evento
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-5H7v5h7v-5z"/></svg></span> F2 · Registrar un evento
     </a>
     <a class="nav-link" onclick="show('f3')">
-      <span class="nav-icon">🗂️</span> F3 · Consultar eventos
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 12H4V4h10v12zm10-7h-8v2h8V9zm0 4h-8v2h8v-2z"/></svg></span> F3 · Consultar eventos
     </a>
     <a class="nav-link" onclick="show('f4')">
-      <span class="nav-icon">✏️</span> F4 · Actualizar un evento
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg></span> F4 · Actualizar un evento
     </a>
     <a class="nav-link" onclick="show('f5')">
-      <span class="nav-icon">➕</span> F5 · Agregar participantes
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .89 2 2s-.9 2-2 2-2-.89-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5h-12v-2c0-1.33 4-2 6-2s6 .67 6 2v2zM9.41 13.09C8.31 13.56 7.48 14 6 14c-1.48 0-2.31-.44-3.41-.91-.6-.28-1.36-.42-2.09-.42-.67 0-1.35.14-2 .4V9.5C1 7.57 2.46 6 4.5 6c.96 0 1.86.22 2.5.55.97-.52 2.52-1.05 4.5-1.05 1.98 0 3.53.53 4.5 1.05.64-.33 1.54-.55 2.5-.55 2.04 0 3.5 1.57 3.5 3.5v3.57c-.65-.26-1.33-.4-2-.4-.73 0-1.49.14-2.09.42z"/></svg></span> F5 · Agregar participantes
     </a>
     <a class="nav-link" onclick="show('f6')">
-      <span class="nav-icon">🚫</span> F6 · Deshabilitar un evento
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg></span> F6 · Deshabilitar un evento
     </a>
     <a class="nav-link" onclick="show('f7')">
-      <span class="nav-icon">📆</span> F7 · Mis eventos (Invitado)
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.19-2.19L6 17h12l-3.04-4.71z"/></svg></span> F7 · Mis eventos (Invitado)
     </a>
     <a class="nav-link" onclick="show('f8')">
-      <span class="nav-icon">🚪</span> F8 · Cerrar sesión
-    </a>
-    <a class="nav-link" onclick="show('diagrama-flujo')">
-      <span class="nav-icon">🔄</span> Diagrama de Flujo
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 2H5c-1.1 0-1.99.9-1.99 2v14c0 1.1.89 2 1.99 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12h-5v4h-2v-4H7v-2h5V7h2v5h5v2z"/></svg></span> F8 · Cerrar sesión
     </a>
   </div>
 
   <div class="nav-section">
     <div class="nav-section-label">Cierre</div>
     <a class="nav-link" onclick="show('errores')">
-      <span class="nav-icon">⚠️</span> Errores comunes
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span> Errores comunes
     </a>
     <a class="nav-link" onclick="show('referencias')">
-      <span class="nav-icon">📚</span> Referencias
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16z"/></svg></span> Referencias
     </a>
   </div>
 </nav>
@@ -296,10 +293,6 @@
     <p><strong>Chroniq</strong> es una aplicación de escritorio diseñada para simplificar la organización y gestión de eventos. Permite programar actividades, asignar participantes y controlar los horarios de manera ordenada, evitando conflictos y errores de planeación.</p>
     <p>El sistema cuenta con dos tipos de usuarios: el <strong>Líder</strong>, quien tiene control total para crear, consultar, actualizar y deshabilitar eventos, así como gestionar la lista de participantes; y el <strong>Invitado</strong>, quien puede consultar de forma sencilla los eventos a los que ha sido asignado.</p>
     <p>Este manual fue elaborado para guiar a los usuarios en el uso correcto de cada funcionalidad, describiendo paso a paso lo que deben hacer, qué esperar como respuesta del sistema y cómo actuar si algo no sale como se esperaba.</p>
-    <div class="info-box blue">
-      <span class="box-label" style="color:var(--info);">ℹ️ Versión del manual</span>
-      <p>Este documento corresponde a la versión 1.0 de Chroniq.</p>
-    </div>
   </section>
 
   <!-- ══════════ RECOMENDACIONES ══════════ -->
@@ -324,12 +317,6 @@
       <li>Al registrar un nuevo invitado, use un número de cédula que no haya sido registrado antes.</li>
       <li>Cierre sesión correctamente usando el botón correspondiente en cada pantalla, en lugar de cerrar la ventana directamente.</li>
     </ul>
-
-    <h3>Seguridad y acceso</h3>
-    <div class="info-box warn">
-      <span class="box-label" style="color:var(--warning);">⚠️ Importante</span>
-      <p>No comparta sus credenciales de acceso (número de cédula y contraseña) con otras personas. El rol de <strong>Líder</strong> tiene acceso completo al sistema, por lo que debe ser asignado solo a personal autorizado.</p>
-    </div>
   </section>
 
   <!-- ══════════ OBJETIVOS ══════════ -->
@@ -362,20 +349,15 @@
 
     <h3>Usuario Líder</h3>
     <div style="margin-bottom:1rem;">
-      <span class="role-chip">👑 Líder</span>
+      <span class="role-chip"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 1z"/></svg> Líder</span>
     </div>
     <p>Es la persona encargada de organizar los eventos. Tiene acceso completo al sistema: puede crear, consultar, actualizar y deshabilitar eventos, registrar nuevos invitados y asignarlos a las actividades programadas. Solo se necesita saber usar aplicaciones básicas de Windows para operar este rol sin dificultad.</p>
 
     <h3>Usuario Invitado</h3>
     <div style="margin-bottom:1rem;">
-      <span class="role-chip guest">🙋 Invitado</span>
+      <span class="role-chip guest"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 10c2.21 0 4 1.79 4 4v4H8v-4c0-2.21 1.79-4 4-4z"/></svg> Invitado</span>
     </div>
     <p>Es la persona que participa en los eventos. Su acceso es más limitado: únicamente puede ver los eventos futuros a los que ha sido asignado por un Líder. No se requiere ningún conocimiento técnico para usar este perfil.</p>
-
-    <div class="info-box green">
-      <span class="box-label" style="color:var(--success);">✅ Sin conocimientos técnicos requeridos</span>
-      <p>No necesita saber de programación ni de bases de datos para usar Chroniq. Con saber abrir ventanas, completar formularios y hacer clic en botones es más que suficiente.</p>
-    </div>
   </section>
 
   <!-- ══════════ LO QUE DEBO CONOCER ══════════ -->
@@ -443,11 +425,6 @@
           <img src="img/login-error-credenciales.png" alt="Mensaje de error por datos incorrectos" >
         </div>
         <p class="fig-caption"><em>Fig. 2 — Mensaje de error al ingresar datos incorrectos</em></p>
-
-        <div class="info-box red">
-          <span class="box-label" style="color:var(--danger);">⚠️ ¿Olvidó sus datos?</span>
-          <p>Si no recuerda su número de cédula o contraseña, contacte al Líder del sistema para que le indique cómo proceder.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -526,7 +503,7 @@
         <p class="fig-caption"><em>Fig. 3e — Mensaje cuando el horario ya está ocupado por otro evento</em></p>
 
         <div class="info-box">
-          <span class="box-label" style="color:var(--accent);">💡 Gestión de horarios</span>
+          <span class="box-label" style="color:var(--accent);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> Gestión de horarios</span>
           <p>El sistema no permite crear dos eventos con horarios superpuestos. Esto evita conflictos de scheduling y ayuda a organizar mejor las actividades.</p>
         </div>
       </div>
@@ -562,7 +539,7 @@
         </div>
 
         <div class="info-box blue">
-          <span class="box-label" style="color:var(--info);">ℹ️ Solo eventos activos</span>
+          <span class="box-label" style="color:var(--info);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> Solo eventos activos</span>
           <p>La tabla muestra únicamente los eventos habilitados. Los eventos deshabilitados ya no aparecen en este listado.</p>
         </div>
       </div>
@@ -599,7 +576,7 @@
         </div>
 
         <div class="info-box blue">
-          <span class="box-label" style="color:var(--info);">ℹ️ Seleccione primero</span>
+          <span class="box-label" style="color:var(--info);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> Seleccione primero</span>
           <p>Si hace clic en <strong>Actualizar</strong> sin haber seleccionado ningún evento en la tabla, el sistema le pedirá que seleccione uno antes de continuar.</p>
         </div>
       </div>
@@ -643,7 +620,7 @@
         </div>
 
         <div class="info-box green">
-          <span class="box-label" style="color:var(--success);">✅ Validación automática</span>
+          <span class="box-label" style="color:var(--success);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Validación automática</span>
           <p>El sistema verifica automáticamente que el invitado no tenga conflictos de horario antes de agregarlo. Si existe un conflicto, mostrará un mensaje de error.</p>
         </div>
 
@@ -669,7 +646,7 @@
         </ul>
 
         <div class="info-box blue">
-          <span class="box-label" style="color:var(--info);">ℹ️ Cédula única</span>
+          <span class="box-label" style="color:var(--info);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> Cédula única</span>
           <p>El número de cédula es el identificador único de cada usuario. No puede haber dos invitados con la misma cédula en el sistema.</p>
         </div>
 
@@ -690,12 +667,6 @@
           Aviso cuando el invitado ya tiene otro evento en el mismo horario
         </div>
         <p class="fig-caption" style="margin-bottom:1.5rem;"><em>Fig. 7b — Aviso de conflicto de horario al agregar un participante</em></p>
-
-        <div class="info-box warn">
-          <span class="box-label" style="color:var(--warning);">💡 Resolución de conflictos</span>
-          <p>Si hay un conflicto de horario, puede: (1) cambiar la hora del evento actual, (2) asignar a otro invitado, o (3) esperar a que se resuelva el conflicto.</p>
-        </div>
-
       </div>
     </div>
   </section>
@@ -729,7 +700,7 @@
         </div>
 
         <div class="info-box red">
-          <span class="box-label" style="color:var(--danger);">⚠️ Acción no reversible desde la aplicación</span>
+          <span class="box-label" style="color:var(--danger);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> Acción no reversible desde la aplicación</span>
           <p>Una vez que un evento es deshabilitado, no volverá a aparecer en Chroniq. Asegúrese de que realmente desea realizar esta acción antes de confirmar.</p>
         </div>
       </div>
@@ -765,7 +736,7 @@
         </div>
 
         <div class="info-box green">
-          <span class="box-label" style="color:var(--success);">✅ Solo eventos futuros</span>
+          <span class="box-label" style="color:var(--success);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Solo eventos futuros</span>
           <p>El sistema filtra automáticamente el listado para mostrar únicamente los eventos cuya fecha de inicio aún no ha pasado. Los eventos del pasado no aparecen en este panel.</p>
         </div>
       </div>
@@ -807,98 +778,10 @@
         <p class="fig-caption"><em>Fig. 10 — Confirmación antes de cerrar sesión</em></p>
 
         <div class="info-box warn">
-          <span class="box-label" style="color:var(--warning);">💡 Buena práctica de seguridad</span>
+          <span class="box-label" style="color:var(--warning);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> Buena práctica de seguridad</span>
           <p>Use siempre el botón de <strong>Cerrar sesión</strong> en lugar de cerrar directamente la ventana de la aplicación. Esto garantiza que su sesión se cierre correctamente y que nadie más pueda acceder a su cuenta sin autorización.</p>
         </div>
-
-        <div class="info-box blue">
-          <span class="box-label" style="color:var(--info);">ℹ️ En ordenadores compartidos</span>
-          <p>Si está usando un ordenador compartido con otras personas, es especialmente importante cerrar sesión correctamente para proteger la privacidad de sus datos.</p>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ══════════ DIAGRAMA DE FLUJO ══════════ -->
-  <section id="sec-diagrama-flujo" class="section">
-    <div class="page-header">
-      <p class="page-label">Referencia visual</p>
-      <h2 class="page-title">Diagrama de Flujo del Sistema</h2>
-    </div>
-    <p style="margin-bottom:2rem;">En este diagrama se muestra el flujo de navegación completo del sistema Chroniq, desde el inicio de sesión hasta todas las funcionalidades disponibles para líderes e invitados.</p>
-    
-    <div class="flow-diagram-tree">
-
-      <!-- NIVEL 1: Login -->
-      <div class="flow-tree-level level-1">
-        <div class="flow-tree-node login-node">
-          <img src="img/Login.png" alt="Login" class="flow-tree-img" onclick="show('f1')">
-          <div class="flow-tree-label">Login.png</div>
-        </div>
-      </div>
-
-      <!-- Conectores nivel 1 a nivel 2 -->
-      <svg class="flow-tree-svg level-1-2" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 50 0 Q 25 50 25 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M 50 0 Q 75 50 75 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 2: Interfaz Invitado y Líder -->
-      <div class="flow-tree-level level-2">
-        <div class="flow-tree-node guest-node">
-          <img src="img/interfaz-invitado.png" alt="Interfaz Invitado" class="flow-tree-img" onclick="show('f7')">
-          <div class="flow-tree-label">interfaz-invitado.png</div>
-        </div>
-        <div class="flow-tree-node leader-node">
-          <img src="img/interfaz-lider.png" alt="Interfaz Líder" class="flow-tree-img" onclick="show('f2')">
-          <div class="flow-tree-label">interfaz-lider.png</div>
-        </div>
-      </div>
-
-      <!-- Conectores desde Líder (abajo y derecha) -->
-      <svg class="flow-tree-svg level-2-3" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 75 0 Q 55 45 55 90" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M 75 0 Q 95 45 95 90" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 3: Crear Evento (izquierda) y Actualizar Evento (derecha) -->
-      <div class="flow-tree-level level-3">
-        <div class="flow-tree-node">
-          <img src="img/interfaz-lider-crear-evento.png" alt="Crear Evento" class="flow-tree-img" onclick="show('f2')">
-          <div class="flow-tree-label">interfaz-lider-crear-evento.png</div>
-        </div>
-        <div class="flow-tree-node">
-          <img src="img/actualizar-evento.png" alt="Actualizar Evento" class="flow-tree-img" onclick="show('f4')">
-          <div class="flow-tree-label">actualizar-evento.png</div>
-        </div>
-      </div>
-
-      <!-- Conector desde Crear Evento hacia abajo -->
-      <svg class="flow-tree-svg level-3-4" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 50 0 L 50 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 4: Agregar Invitado -->
-      <div class="flow-tree-level level-4">
-        <div class="flow-tree-node">
-          <img src="img/agregar-invitado.png" alt="Agregar Invitado" class="flow-tree-img" onclick="show('f5')">
-          <div class="flow-tree-label">agregar-invitado.png</div>
-        </div>
-      </div>
-
-      <!-- Conector desde Agregar Invitado hacia abajo -->
-      <svg class="flow-tree-svg level-4-5" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <path d="M 50 0 L 50 100" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-      </svg>
-
-      <!-- NIVEL 5: Crear Nuevo Invitado -->
-      <div class="flow-tree-level level-5">
-        <div class="flow-tree-node">
-          <img src="img/crear-nuevo-invitado.png" alt="Crear Nuevo Invitado" class="flow-tree-img" onclick="show('f5')">
-          <div class="flow-tree-label">crear-nuevo-invitado.png</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -968,11 +851,6 @@
     <h4>Error: Fecha inválida</h4>
     <p>Puede ocurrir si intenta ingresar una fecha que no existe (ej: 31 de febrero).</p>
     <p><strong>Solución:</strong> Use el selector de fecha para elegir una fecha válida.</p>
-
-    <div class="info-box blue">
-      <span class="box-label" style="color:var(--info);">ℹ️ ¿Necesita más ayuda?</span>
-      <p>Si encontró un error no descrito en esta sección, contacte al administrador del sistema. Proporcione el código de error (si aparece) y una descripción de qué acción estaba realizando cuando ocurrió.</p>
-    </div>
   </section>
 
   <!-- ══════════ REFERENCIAS ══════════ -->
@@ -993,7 +871,7 @@
 
     <br>
     <div class="info-box">
-      <span class="box-label" style="color:var(--accent);">📋 Nota sobre el formato APA</span>
+      <span class="box-label" style="color:var(--accent);"><svg style="width:16px;height:16px;display:inline;margin-right:4px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h12v16z"/></svg> Nota sobre el formato APA</span>
       <p>Las referencias se presentan en orden alfabético por apellido del primer autor o nombre de la organización, con sangría francesa, conforme a las directrices de la 7.ª edición de APA.</p>
     </div>
   </section>

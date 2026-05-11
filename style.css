@@ -233,7 +233,39 @@ li { margin-bottom: .38rem; }
 .badge-green { background: #dcfce7; color: #14532d; } .badge-yellow { background: #fef9c3; color: #713f12; } .badge-red { background: #fee2e2; color: #7f1d1d; }
 
 /* ═══ PIE DE FIGURA & TABLAS ═══ */
-.fig-caption { font-size: .76rem; color: #9ca3af; text-align: center; margin-top: -.25rem; margin-bottom: 1.1rem; font-style: italic; }
+.fig-caption {
+  font-size: .8rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: .55rem;
+  margin-bottom: 1.4rem;
+  line-height: 1.55;
+  font-style: normal;
+}
+.fig-caption strong {
+  display: block;
+  font-weight: 700;
+  color: var(--text);
+  font-size: .82rem;
+  margin-bottom: .15rem;
+}
+.fig-caption em {
+  display: block;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* APA table labels */
+.table-apa-label {
+  font-size: .9rem;
+  margin-bottom: .12rem;
+  color: var(--text);
+}
+.table-apa-title {
+  font-size: .88rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
 .ill-table { width: 100%; border-collapse: collapse; font-size: .87rem; margin-top: 1rem; }
 .ill-table th { background: var(--primary); color: #fff; padding: .6rem .85rem; text-align: left; font-weight: 600; }
 .ill-table td { padding: .55rem .85rem; border-bottom: 1px solid var(--border); vertical-align: top; }
